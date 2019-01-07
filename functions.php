@@ -16,11 +16,11 @@ class Liliom extends Timber\Site {
     }
 
     public function add_to_context( $context ) {
-		$context['CF_IPCOUNTRY'] = $_SERVER['HTTP_CF_IPCOUNTRY'];
-		// $context['menu'] = new Timber\Menu();
-        $context['site'] = $this;
-		return $context;
-	}
+	    $context['CF_IPCOUNTRY'] = $_SERVER['HTTP_CF_IPCOUNTRY'];
+	    // $context['menu'] = new Timber\Menu();
+	    $context['site'] = new TimberSite();
+	    return $context;
+    }
 }
 
 new Liliom();
