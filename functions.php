@@ -13,6 +13,7 @@ class Liliom extends Timber\Site {
 
     public function theme_supports() {
         add_theme_support( 'title-tag' );
+        add_theme_support( 'woocommerce' );
     }
 
     public function add_to_context( $context ) {
