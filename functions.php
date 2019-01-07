@@ -7,14 +7,15 @@ Timber::$autoescape = false;
 
 class Liliom extends Timber\Site {
     public function __construct() {
-        add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
+        add_action( 'after_setup_theme', array( $this, 'after_setup_liliom' ) );
         add_action( 'widgets_init', array( $this, 'widget_awareness' ) );
         add_filter( 'timber_context', array( $this, 'add_to_context' ) );
     }
 
-    public function theme_supports() {
+    public function after_setup_liliom() {
         add_theme_support( 'title-tag' );
         add_theme_support( 'woocommerce' );
+        
         remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
     }
 
