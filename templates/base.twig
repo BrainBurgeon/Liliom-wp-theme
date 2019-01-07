@@ -1,0 +1,17 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+    <body class="{{body_class}}">
+        <section role="main" class="content-wrapper">
+        {% block content %}
+            Content is coming... soon :)
+        {% endblock %}
+        </section>
+    </body>
+
+</html>
