@@ -12,6 +12,12 @@
             Content is coming... soon :)
         {% endblock %}
         </section>
-    </body>
 
+        {% block footer %}
+        <footer>
+            {% include 'footer.twig' %}
+        </footer>
+        {{ function('wp_footer') }}
+        {% endblock %}
+    </body>
 </html>
