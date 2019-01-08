@@ -1,6 +1,6 @@
 <?php
 
 $context = Timber::get_context();
-$templates = array( 'index.twig' );
+$templates = array( 'woocommerce.twig' );
 
 Timber::render( $templates, $context );
