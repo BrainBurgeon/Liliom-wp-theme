@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html {{ site.language_attributes }}>
 <head>
     {% include 'analytics.twig' %}
     <meta charset="{{ site.charset }}" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.description }}">
-    <link rel="stylesheet" href="{{ site.theme.link }}/dist/liliom.css?v={{ theme.version }}" type="text/css" media="screen" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ site.theme.link }}/dist/liliom.css?v={{ theme.version }}" />
     <!--sse-->{{ function('wp_head') }}<!--/sse-->

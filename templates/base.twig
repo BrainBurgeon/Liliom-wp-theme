@@ -1,5 +1,4 @@
 {% block html_head_container %}
-
 {% include 'html-header.twig' %}
 	{% block head %}
 	{% endblock %}
@@ -7,11 +6,21 @@
 {% endblock %}
 
     <body>
-        <section role="main" class="content-wrapper">
+        <nav>
+            <ul>
+            {% for item in menu.items %}
+                <li>
+                    <a href="{{ item.link }}">{{ item.title }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </nav>
+
+        <main>
         {% block content %}
             Content is coming... soon :)
         {% endblock %}
-        </section>
+        </main>
 
         {% block footer %}
         <footer>
