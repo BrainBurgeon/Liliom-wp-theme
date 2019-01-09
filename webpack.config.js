@@ -2,9 +2,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-module.exports = {
+var config = {
     mode: 'production',
-
     plugins: [
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
@@ -27,4 +26,13 @@ module.exports = {
             ]
         }]
     }
+};
+
+module.exports = (env, argv) => {
+    if (argv.mode === 'development') {
+        config.mode = argv.mode;
+        config.watch = true;
+    }
+
+    return config;
 };

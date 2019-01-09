@@ -1,5 +1,35 @@
-$colour: blue;
+// $colour: #ffffb3;
+$colour: #16ffbd;
+$color_brand: #cd576f;
+
+html {
+    height: 100%;
+    background: $colour;
+    background: linear-gradient(#b8fbe8,#16ffbd);
+}
 
 body {
-    background: $colour;
+    // min-height: 100%;
+    font: 300 18px Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #3a3a3a;
+}
+
+.content-wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.woocommerce-info {
+    background: $color_brand;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    // border: 1px solid $color_brand;
+}
+
+footer {
+    text-align: center;
+    font-size: .6em;
+    opacity: .5;
+    cursor: default;
 }
