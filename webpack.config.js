@@ -24,6 +24,12 @@ var config = {
                 "css-loader", // translates CSS into CommonJS
                 "sass-loader" // compiles Sass to CSS, using Node Sass by default
             ]
+        }, {
+            test: /\.(png|jpg|gif)$/,
+            loader: 'file-loader',
+            options: {
+                name: 'img/[name].[ext]',
+            },
         }]
     }
 };
