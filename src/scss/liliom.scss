@@ -5,13 +5,24 @@ $color_brand: #cd576f;
 html {
     height: 100%;
     background: $colour;
-    background: linear-gradient(#b8fbe8,#16ffbd);
+    // background: linear-gradient(#b8fbe8,#16ffbd);
+    background: linear-gradient(#f7fbb8,#fbff16);
 }
 
 body {
     // min-height: 100%;
     font: 300 18px Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: #3a3a3a;
+}
+
+a {
+    color: $color_brand;
+    text-decoration: none;
+    transition: .5s ease;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .content-wrapper {
