@@ -2,29 +2,29 @@
     list-style: none;
     margin: 10px 0;
     padding: 0;
-}
 
-.product {
-    display: inline-block;
-    width: 33%;
-    padding: 10px;
-    box-sizing: border-box;
-
-    a {
-        display: block;
-        text-align: center;
-    }
-
-    h2 {
-        font-size: 1em;
-    }
-
-    .amount {
-        display: block;
-    }
-
-    .add_to_cart_button {
-        text-align: right;
-        font-size: .8em;
+    .product {
+        display: inline-block;
+        width: 33%;
+        padding: 10px;
+        box-sizing: border-box;
+    
+        a {
+            display: block;
+            text-align: center;
+        }
+    
+        h2 {
+            font-size: 1em;
+        }
+    
+        .amount {
+            display: block;
+        }
+    
+        .add_to_cart_button {
+            text-align: right;
+            font-size: .8em;
+        }
     }
 }
