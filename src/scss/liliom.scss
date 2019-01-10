@@ -1,59 +1,79 @@
-$colour: #fbff16;
-$color_brand: #cd576f;
+$main-content-width: 980px;
 
-@import 'blocks/menu';
-@import 'blocks/products';
+@import 'woocommerce/woocommerce';
 
-html {
-    min-height: 100%;
-    background: $colour;
-    background: linear-gradient(#f7fbb8,#fbff16);
-}
+// body {
+//     margin: 0;
+// }
 
-body {
-    font: 300 18px Arial, "Helvetica Neue", Helvetica, sans-serif;
-    color: #3a3a3a;
-    margin: 0;
-    width: 85%;
-    margin: 0 auto;
-}
+// main {
+//     width: $main-content-width;
+//     margin: 0 auto;
+// }
 
-a {
-    color: $color_brand;
-    text-decoration: none;
 
-    &:hover {
-        text-decoration: underline;
-    }
-}
 
-nav {
-    ul {
-        padding: 0;
-        list-style: none;
-        margin: 0;
-    }
 
-    li {
-        display: inline-block;
-        margin-right: 10px;
-    }
-}
 
-.woocommerce-info {
-    background: $color_brand;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
 
-.woocommerce-ordering {
-    text-align: right;
-}
 
-footer {
-    text-align: center;
-    font-size: .6em;
-    opacity: .5;
-    padding: 10px;
-}
+// $colour: #fbff16;
+// $color_brand: #cd576f;
+
+
+// // @import 'blocks/menu';
+// // @import 'blocks/products';
+
+// html {
+//     min-height: 100%;
+//     background: $colour;
+//     background: linear-gradient(#f7fbb8,#fbff16);
+// }
+
+// body {
+//     font: 300 18px Arial, "Helvetica Neue", Helvetica, sans-serif;
+//     color: #3a3a3a;
+//     margin: 0;
+//     width: 85%;
+//     margin: 0 auto;
+// }
+
+// a {
+//     color: $color_brand;
+//     text-decoration: none;
+
+//     &:hover {
+//         text-decoration: underline;
+//     }
+// }
+
+// nav {
+//     ul {
+//         padding: 0;
+//         list-style: none;
+//         margin: 0;
+//     }
+
+//     li {
+//         display: inline-block;
+//         margin-right: 10px;
+//     }
+// }
+
+// // .woocommerce-info {
+// //     background: $color_brand;
+// //     color: white;
+// //     padding: 5px 10px;
+// //     border-radius: 5px;
+// // }
+
+// // .woocommerce-ordering {
+// //     text-align: right;
+// // }
+
+// footer {
+//     text-align: center;
+//     font-size: .6em;
+//     opacity: .5;
+//     padding: 10px;
+// }
