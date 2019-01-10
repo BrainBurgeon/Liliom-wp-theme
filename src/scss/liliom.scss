@@ -1,16 +1,15 @@
-// $colour: #ffffb3;
-$colour: #16ffbd;
+$colour: #fbff16;
 $color_brand: #cd576f;
+
+@import 'blocks/menu';
 
 html {
     height: 100%;
     background: $colour;
-    // background: linear-gradient(#b8fbe8,#16ffbd);
     background: linear-gradient(#f7fbb8,#fbff16);
 }
 
 body {
-    // min-height: 100%;
     font: 300 18px Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: #3a3a3a;
     margin: 0;
@@ -28,15 +27,10 @@ a {
 }
 
 nav {
-    background: url(../img/logo2.tiny.png) no-repeat;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    
     ul {
         padding: 0;
         list-style: none;
-        margin: 0 0 0 200px;
+        margin: 0;
     }
 
     li {
@@ -45,21 +39,15 @@ nav {
     }
 }
 
-main {
-    
-}
-
 .woocommerce-info {
     background: $color_brand;
     color: white;
-    padding: 5px;
+    padding: 5px 10px;
     border-radius: 5px;
-    // border: 1px solid $color_brand;
 }
 
 footer {
     text-align: center;
     font-size: .6em;
     opacity: .5;
-    cursor: default;
 }
