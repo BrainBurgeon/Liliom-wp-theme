@@ -11,9 +11,18 @@ class Liliom extends Timber\Site {
         add_action( 'widgets_init', array( $this, 'widget_awareness' ) );
         add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 
-        // WooCommerce
+        ### WooCommerce
         add_filter( 'woocommerce_enqueue_styles', '__return_false' );
         remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+        // Remove product images from the shop loop
+        remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+        // Remove product thumbnail from the cart page
+        add_filter( 'woocommerce_cart_item_thumbnail', '__return_empty_string' );
+        // Remove image from product pages
+        remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+        // Remove sale badge from product page
+        // remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+
         // remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
         // remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
         // add_action('woocommerce_before_main_content', array( $this, 'my_theme_wrapper_start' ), 10);
