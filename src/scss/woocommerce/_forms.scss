@@ -36,4 +36,64 @@ form {
             text-align: center;
         }
     }
+
+    &.checkout {
+        h3 {
+            text-align: center;
+        }
+
+        .required {
+            text-decoration: none;
+            color: $brand-color;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+
+            @media screen and (max-width: $mobile-breakpoint) {
+                flex-direction: column;
+            }
+
+            label {
+                width: 200px;
+                text-align: right;
+                margin-right: $gutter;
+
+                @media screen and (max-width: $mobile-breakpoint) {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+
+            .input-text {
+                width: 200px;
+            }
+
+            textarea {
+                
+                height: 50px;
+            }
+        }
+
+        .shop_table {
+            width: 50%;
+            min-width: 250px;
+            margin: 0 auto;
+
+            tbody,
+            tfoot {
+                .product-total,
+                .cart-subtotal,
+                .order-total {
+                    text-align: right;
+                }
+            }
+        }
+
+        .place-order {
+            display: block;
+            text-align: center;
+        }
+    }
 }
