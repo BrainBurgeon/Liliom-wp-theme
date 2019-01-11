@@ -2,8 +2,8 @@
 .woocommerce-NoticeGroup {
     .woocommerce-error {
         background: lighten($brand-color, 30);
-        padding: $gutter;
-        
+        padding: 20px 40px;
+
         strong {
             color: $brand-color;
         }
