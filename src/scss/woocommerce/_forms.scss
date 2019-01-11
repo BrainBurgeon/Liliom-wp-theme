@@ -3,6 +3,7 @@ form {
 
     .select2-container--default .select2-selection--single {
         border-radius: $border-radius;
+        width: 200px;
     }
 
     &.woocommerce-ordering {
