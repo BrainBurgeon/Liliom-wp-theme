@@ -1,0 +1,13 @@
+.cart-collaterals {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    .shop_table {
+        width: 100%;
+    }
+
+    .wc-proceed-to-checkout {
+        margin: $gutter;
+    }
+}

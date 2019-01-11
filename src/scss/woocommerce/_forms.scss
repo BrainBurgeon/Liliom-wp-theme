@@ -9,4 +9,31 @@ form {
         display: flex;
         align-items: center;
     }
+
+    &.woocommerce-cart-form {
+        .product-thumbnail,
+        .screen-reader-text {
+            display: none;
+        }
+
+        .remove {
+            text-decoration: none;
+        }
+
+        .shop_table {
+            width: 100%;
+        }
+
+        .cart_item {
+            .product-price,
+            .product-quantity,
+            .product-subtotal {
+                text-align: right;
+            }
+        }
+
+        .actions {
+            text-align: center;
+        }
+    }
 }
