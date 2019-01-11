@@ -1,6 +1,6 @@
 <?php
 
-$translations = array('CN' => 'zh_CN');
+$translations = array( 'CN' => 'zh_CN' );
 
 // Timber is a must-use plugin, no need to check its existence
 

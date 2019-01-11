@@ -4,4 +4,9 @@ form {
     &.woocommerce-ordering {
         text-align: right;
     }
+
+    &.cart {
+        display: flex;
+        align-items: center;
+    }
 }
