@@ -68,10 +68,13 @@ form {
 
             .input-text {
                 width: 200px;
+                font: inherit;
+                border: 1px solid #aaa;
+                border-radius: 4px;
+                padding: 8px;
             }
 
             textarea {
-                
                 height: 50px;
             }
         }
