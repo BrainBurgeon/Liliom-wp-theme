@@ -9,6 +9,7 @@ Timber::$autoescape = false;
 
 class Liliom extends Timber\Site {
     public function __construct() {
+        add_filter( 'locale', array( $this, 'set_my_locale' ) );
         add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
         add_action( 'widgets_init', array( $this, 'widget_awareness' ) );
         add_filter( 'timber_context', array( $this, 'add_to_context' ) );
@@ -44,6 +45,18 @@ class Liliom extends Timber\Site {
     // public function my_theme_wrapper_end() {
     //     echo '</section>';
     // }
+
+    public function set_my_locale($lang) {
+        global $translations;
+        $lang_key = $_SERVER['HTTP_CF_IPCOUNTRY'];
+        if ( !empty($_GET['language'])) {
+            $lang_key = $_GET['language'];
+        }
+        if ( !empty($translations[$lang_key]) ) {
+            return $translations[$lang_key];
+        }
+        return $lang;
+    }
 
     public function theme_supports() {
         add_theme_support( 'title-tag' );
