@@ -3,6 +3,7 @@
     .woocommerce-error {
         background: lighten($brand-color, 30);
         padding: 20px 40px;
+        border-radius: $border-radius;
 
         strong {
             color: $brand-color;
