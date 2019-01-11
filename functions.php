@@ -26,6 +26,8 @@ class Liliom extends Timber\Site {
         remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
         // Remove the sorting dropdown from Woocommerce
         remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_catalog_ordering', 30 );
+        // Remove tabs from product detail page
+        remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 
         // remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
         // remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
