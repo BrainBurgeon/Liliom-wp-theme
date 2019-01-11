@@ -1,0 +1,12 @@
+.woocommerce-notices-wrapper,
+.woocommerce-NoticeGroup {
+    background: lighten($brand-color, 30);
+    padding: $gutter;
+
+    .woocommerce-error {
+        strong {
+            color: $brand-color;
+        }
+    }
+}
+
