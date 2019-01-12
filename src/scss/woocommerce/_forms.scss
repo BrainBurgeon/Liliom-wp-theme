@@ -4,6 +4,14 @@ form {
         width: 200px;
     }
 
+    .input-text {
+        font: inherit;
+        border: 1px solid #aaa;
+        border-radius: $border-radius;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
     &.woocommerce-ordering {
         text-align: right;
     }
@@ -71,11 +79,6 @@ form {
 
             .input-text {
                 width: 200px;
-                font: inherit;
-                border: 1px solid #aaa;
-                border-radius: $border-radius;
-                padding: 8px;
-                box-sizing: border-box;
             }
 
             textarea {
