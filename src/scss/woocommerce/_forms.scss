@@ -4,12 +4,28 @@ form {
         width: 200px;
     }
 
+    label {
+        width: 200px;
+        text-align: right;
+        margin-right: $gutter;
+
+        @media screen and (max-width: $mobile-breakpoint) {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
     .input-text {
         font: inherit;
         border: 1px solid #aaa;
         border-radius: $border-radius;
         padding: 8px;
         box-sizing: border-box;
+    }
+
+    .required {
+        text-decoration: none;
+        color: $brand-color;
     }
 
     &.woocommerce-ordering {
@@ -53,28 +69,12 @@ form {
             text-align: center;
         }
 
-        .required {
-            text-decoration: none;
-            color: $brand-color;
-        }
-
         .form-row {
             display: flex;
             align-items: center;
 
             @media screen and (max-width: $mobile-breakpoint) {
                 flex-direction: column;
-            }
-
-            label {
-                width: 200px;
-                text-align: right;
-                margin-right: $gutter;
-
-                @media screen and (max-width: $mobile-breakpoint) {
-                    width: 100%;
-                    text-align: center;
-                }
             }
 
             .input-text {
