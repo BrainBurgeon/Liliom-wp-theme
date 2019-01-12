@@ -51,6 +51,10 @@ a {
 main {
     width: 66%;
     margin: 0 auto;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+        width: 88%;
+    }
 }
 
 footer {
