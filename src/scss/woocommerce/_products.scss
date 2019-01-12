@@ -3,18 +3,22 @@
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 
 
     &.columns-3 {
         .product {
-            width: 33.33%;
-            padding: $gutter;
-            box-sizing: border-box;
+            width: 30%;
         }
     }
 
     .product {
-        outline: 1px solid red;
+        padding: $gutter $gutter 60px;
+        box-sizing: border-box;
+        position: relative;
+        margin: 10px;
+        border: 3px solid $brand-secondary-color;
+        border-radius: $border-radius;
 
         @media screen and (max-width: $mobile-breakpoint) {
             width: 100% !important;
@@ -32,7 +36,9 @@
         }
 
         .add_to_cart_button {
-            float: right;
+            position: absolute;
+            right: $gutter;
+            bottom: $gutter;
         }
 
         .price {
@@ -44,6 +50,15 @@
         &:hover {
             .price {
                 transform: scale(1.5);
+            }
+        }
+
+        .button {
+            color: darken($brand-secondary-color, 30);
+            background: white;
+
+            &:hover {
+                background: $brand-secondary-color;
             }
         }
     }
