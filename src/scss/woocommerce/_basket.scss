@@ -1,4 +1,9 @@
 .woocommerce-cart {
+    // Remove "Estimate for XXX" text
+    .woocommerce-shipping-destination {
+        display: none;
+    }
+
     .cart_item {
         td {
             padding: $gutter;
