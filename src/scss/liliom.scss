@@ -1,6 +1,7 @@
 $main-content-width: 980px;
 
 @import 'woocommerce/woocommerce';
+@import 'blocks/searchform';
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

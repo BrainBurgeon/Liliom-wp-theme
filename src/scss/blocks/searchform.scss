@@ -1,0 +1,11 @@
+.searchform {
+    text-align: center;
+
+    #s {
+        font: inherit;
+        border: 1px solid #aaa;
+        border-radius: $border-radius;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+}
