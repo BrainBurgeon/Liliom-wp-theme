@@ -36,6 +36,8 @@ class Liliom extends Timber\Site {
         // remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
         // add_action('woocommerce_before_main_content', array( $this, 'my_theme_wrapper_start' ), 10);
         // add_action('woocommerce_after_main_content', array( $this, 'my_theme_wrapper_end' ), 10);
+
+        add_filter( 'woocommerce_output_related_products_args', 'output_related_products_args', 9999 );
     }
 
     // public function my_theme_wrapper_start() {
@@ -72,6 +74,12 @@ class Liliom extends Timber\Site {
 	    $context['menu'] = new Timber\Menu('Main Menu');
 	    $context['site'] = new TimberSite();
 	    return $context;
+    }
+
+    public function output_related_products_args( $args ) {
+        $args['posts_per_page'] = 3;
+        $args['columns'] = 3;
+        return $args;
     }
 }
 
