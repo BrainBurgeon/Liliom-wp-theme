@@ -4,8 +4,13 @@
     #s {
         font: inherit;
         border: 1px solid #aaa;
-        border-radius: $border-radius;
-        padding: 8px;
+        border-radius: $border-radius / 2;
+        padding: 2px;
         box-sizing: border-box;
+    }
+
+    #searchsubmit {
+        font: inherit;
+        border: none;
     }
 }
