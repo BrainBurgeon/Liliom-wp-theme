@@ -10,62 +10,64 @@ defined( 'ABSPATH' ) or exit;
 add_action( 'plugins_loaded', 'init_wc_fusionpay' );
 
 function init_wc_fusionpay() {
-    class WC_Gateway_Your_Gateway extends WC_Payment_Gateway {
-        public function __construct() {
-            $this->id = 'wc_fusionpay';
-            $this->has_fields = false;
-            $this->method_title = 'Fusionpay';
+    new WC_Gateway_Fusionpay();
+}
 
-            $this->init_form_fields();
-            $this->init_settings();
+class WC_Gateway_Fusionpay extends WC_Payment_Gateway {
+    public function __construct() {
+        $this->id = 'wc_fusionpay';
+        $this->has_fields = false;
+        $this->method_title = 'Fusionpay';
 
-            // $this->title = $this->get_option( 'title' );
+        $this->init_form_fields();
+        $this->init_settings();
 
-            add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
-        }
+        // $this->title = $this->get_option( 'title' );
 
-        public function init_form_fields() {
-            $this->form_fields = array(
-                'enabled' => array(
-                    'title' => __( 'Enable/Disable', 'woocommerce' ),
-                    'type' => 'checkbox',
-                    'label' => __( 'Enable Fusionpay Payment', 'woocommerce' ),
-                    'default' => 'yes'
-                ),
-                'title' => array(
-                    'title' => __( 'Title', 'woocommerce' ),
-                    'type' => 'text',
-                    'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
-                    'default' => __( 'Fusionpay Payment', 'woocommerce' ),
-                    'desc_tip' => true,
-                ),
-                'description' => array(
-                    'title' => __( 'Customer Message', 'woocommerce' ),
-                    'type' => 'textarea',
-                    'default' => ''
-                )
-            );
-        }
+        add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
+    }
 
-        function process_payment( $order_id ) {
-            global $woocommerce;
-            $order = new WC_Order( $order_id );
+    public function init_form_fields() {
+        $this->form_fields = array(
+            'enabled' => array(
+                'title' => __( 'Enable/Disable', 'woocommerce' ),
+                'type' => 'checkbox',
+                'label' => __( 'Enable Fusionpay Payment', 'woocommerce' ),
+                'default' => 'yes'
+            ),
+            'title' => array(
+                'title' => __( 'Title', 'woocommerce' ),
+                'type' => 'text',
+                'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
+                'default' => __( 'Fusionpay Payment', 'woocommerce' ),
+                'desc_tip' => true,
+            ),
+            'description' => array(
+                'title' => __( 'Customer Message', 'woocommerce' ),
+                'type' => 'textarea',
+                'default' => ''
+            )
+        );
+    }
 
-            // Mark as on-hold
-            $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'woocommerce' ));
-            // $order->payment_complete();
+    function process_payment( $order_id ) {
+        global $woocommerce;
+        $order = new WC_Order( $order_id );
 
-            // Reduce stock levels
-            $order->reduce_order_stock();
+        // Mark as on-hold
+        $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'woocommerce' ));
+        // $order->payment_complete();
 
-            // Remove cart
-            $woocommerce->cart->empty_cart();
+        // Reduce stock levels
+        $order->reduce_order_stock();
 
-            // Return thankyou redirect
-            return array(
-                'result' => 'success',
-                'redirect' => $this->get_return_url( $order )
-            );
-        }
+        // Remove cart
+        $woocommerce->cart->empty_cart();
+
+        // Return thankyou redirect
+        return array(
+            'result' => 'success',
+            'redirect' => $this->get_return_url( $order )
+        );
     }
 }
