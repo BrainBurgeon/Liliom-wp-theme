@@ -60,6 +60,11 @@ function init_wc_fusionpay() {
                     'title' => __( 'Customer Message', 'woocommerce' ),
                     'type' => 'textarea',
                     'default' => ''
+                ),
+                'merchantid' => array(
+                    'title' => __( 'Merchant ID', 'woocommerce' ),
+                    'type' => 'text',
+                    'default' => ''
                 )
             );
         }
