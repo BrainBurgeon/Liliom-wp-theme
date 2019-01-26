@@ -65,6 +65,11 @@ function init_wc_fusionpay() {
                     'title' => __( 'Merchant ID', 'woocommerce' ),
                     'type' => 'text',
                     'default' => ''
+                ),
+                'token' => array(
+                    'title' => __( 'Token', 'woocommerce' ),
+                    'type' => 'text',
+                    'default' => ''
                 )
             );
         }
