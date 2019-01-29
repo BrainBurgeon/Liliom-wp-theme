@@ -1,3 +1,6 @@
 <?php
 
-var_dump(get_post_meta($order->id, 'tgpayqrcode'));
+$context = Timber::get_context();
+$templates = array( 'index.twig' );
+
+Timber::render( $templates, $context );
