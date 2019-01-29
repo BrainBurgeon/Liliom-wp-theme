@@ -106,7 +106,7 @@ function init_wc_fusionpay() {
             
             try {
                 $xml = simplexml_load_file($xml_url);
-                if ( $xml->is_success == 'T' && $xml->result_code == 'SUCCESS' ) {
+                if ( $xml !== false && $xml->is_success == 'T' && $xml->result_code == 'SUCCESS' ) {
                     $xml_array = $this->xml2array($xml);
                     add_post_meta( $order_id, META_KEY, $xml_array );
                 }
@@ -135,8 +135,8 @@ function init_wc_fusionpay() {
         }
 
         private function xml2array( $xmlObject, $out = array () ) {
-            foreach( (array) $xmlObject as $index => $node ) {
-                $out[$index] = is_object( $node ) ? $this->xml2array( $node ) : $node;
+            foreach ($xmlObject->children() as $node) {
+                $out[$node->getName()] = is_array($node) ? $this->xml2array($node) : (string) $node;
             }
             return $out;
         }
