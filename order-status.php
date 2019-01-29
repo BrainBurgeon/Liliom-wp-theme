@@ -20,9 +20,12 @@ try {
     $response['status'] = $order->data['status'];
 
     if ( $order->data['payment_method'] === 'wc_fusionpay' && $order->data['status'] === 'pending' ) {
-
+        $options = get_option('woocommerce_wc_fusionpay_settings');
+        echo '<pre>';
+        var_export($options);
     }
-} catch( Exception $e ) {
+}
+catch( Exception $e ) {
     $response = array('success' => false);
 }
 
