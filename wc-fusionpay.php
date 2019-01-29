@@ -126,7 +126,7 @@ function init_wc_fusionpay() {
             // Return thankyou redirect
             return array(
                 'result' => 'success',
-                'redirect' => $order->get_checkout_payment_url( false )
+                'redirect' => $order->get_checkout_payment_url( true )
             );
         }
 
