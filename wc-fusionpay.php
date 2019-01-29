@@ -12,7 +12,7 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 	return;
 }
 
-
+const API_URL = 'https://sys.tgpaypro.com:8443/api/tgpayqrcode.php?';
 
 add_filter( 'woocommerce_payment_gateways', 'wc_add_fusionpay_gateway' );
 
@@ -82,9 +82,9 @@ function init_wc_fusionpay() {
 
             $args = $this->getArgs( $order );
             $args['sign'] = $this->getSignature( $args );
+            $xml_url = API_URL . http_build_query($args);
             
-
-            var_dump(http_build_query($args));
+            var_dump($xml_url);
 
             exit;
 
