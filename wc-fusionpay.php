@@ -86,15 +86,16 @@ function init_wc_fusionpay() {
             
             try {
                 $xml = simplexml_load_file($xml_url);
-                if ( $xml->is_success == 'T' ) {
-                    $xml_array = $this->xml2array($xml);
-                    add_post_meta( $order_id, 'tgpayqrcode', $xml_array );
+                var_export($xml);
+                if ( $xml->is_success == 'T' && $xml->result_code == 'SUCCESS' ) {
+                    // $xml_array = $this->xml2array($xml);
+                    add_post_meta( $order_id, 'tgpayqrcode', $xml );
+                    var_export(get_post_meta($order_id, 'tgpayqrcode'));
                 }
             } catch( Exception $e ) {
                 // damn
             }
 
-            var_export(get_post_meta($order_id, 'tgpayqrcode'));
             exit;
 
             // Mark as on-hold
