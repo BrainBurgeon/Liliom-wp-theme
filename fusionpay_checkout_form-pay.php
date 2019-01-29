@@ -1,3 +1,6 @@
 <?php
 
-Timber::render( array( 'fusionpay-alipay.twig' ), array( 'order' => $order ) );
+$context = Timber::get_context();
+$context['order'] = $order;
+
+Timber::render( array( 'fusionpay-alipay.twig' ), $context );
