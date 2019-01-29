@@ -83,10 +83,11 @@ function init_wc_fusionpay() {
             $args = $this->getArgs( $order );
             $args['sign'] = $this->getSignature( $args );
             $xml_url = API_URL . http_build_query($args);
+
+            var_export($xml_url);
             
             try {
                 $xml = simplexml_load_file($xml_url);
-                var_export($xml);
                 if ( $xml->is_success == 'T' && $xml->result_code == 'SUCCESS' ) {
                     // $xml_array = $this->xml2array($xml);
                     add_post_meta( $order_id, 'tgpayqrcode', $xml );
