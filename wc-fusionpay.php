@@ -37,6 +37,7 @@ function init_wc_fusionpay() {
 
             $this->title = $this->get_option( 'title' );
             $this->description  = $this->get_option( 'description' );
+            $this->api_url  = $this->get_option( 'apiurl' );
             $this->merchant_id = $this->get_option( 'merchantid' );
             $this->token = $this->get_option( 'token' );
 
@@ -61,6 +62,11 @@ function init_wc_fusionpay() {
                 'description' => array(
                     'title' => __( 'Customer Message', 'woocommerce' ),
                     'type' => 'textarea',
+                    'default' => ''
+                ),
+                'apiurl' => array(
+                    'title' => __( 'API URL', 'woocommerce' ),
+                    'type' => 'text',
                     'default' => ''
                 ),
                 'merchantid' => array(
