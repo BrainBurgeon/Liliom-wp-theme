@@ -87,13 +87,14 @@ function init_wc_fusionpay() {
             try {
                 $xml = simplexml_load_file($xml_url);
                 if ( $xml->is_success == 'T' ) {
-                    $array = $this->xml2array($xml);
-                    var_export($array);
+                    $data = array('tgpayqrcode' => $this->xml2array($xml));
+                    $order->set_meta_data($data);
                 }
             } catch( Exception $e ) {
                 // damn
             }
 
+            var_export($order->get_meta('tgpayqrcode')['pic_url']);
             exit;
 
             // Mark as on-hold
