@@ -94,7 +94,7 @@ function init_wc_fusionpay() {
                 // damn
             }
 
-            var_export($order->get_meta('tgpayqrcode')['pic_url']);
+            var_export($order->get_meta('tgpayqrcode'));
             exit;
 
             // Mark as on-hold
