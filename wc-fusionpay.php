@@ -87,25 +87,19 @@ function init_wc_fusionpay() {
             $args = $this->getArgs( $order );
             $args['sign'] = $this->getSignature( $args );
             $xml_url = $this->api_url . 'tgpayqrcode.php?' . http_build_query($args);
-
-            var_export($xml_url);
             
             try {
                 $xml = simplexml_load_file($xml_url);
                 if ( $xml->is_success == 'T' && $xml->result_code == 'SUCCESS' ) {
-                    // $xml_array = $this->xml2array($xml);
-                    add_post_meta( $order_id, 'tgpayqrcode', $xml );
-                    var_export(get_post_meta($order_id, 'tgpayqrcode'));
+                    $xml_array = $this->xml2array($xml);
+                    add_post_meta( $order_id, 'tgpayqrcode', $xml_array );
                 }
             } catch( Exception $e ) {
                 // damn
             }
 
-            exit;
-
             // Mark as on-hold
             $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'woocommerce' ));
-            // $order->payment_complete();
 
             // Reduce stock levels
             $order->reduce_order_stock();
