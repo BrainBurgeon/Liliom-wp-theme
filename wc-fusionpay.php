@@ -106,9 +106,9 @@ function init_wc_fusionpay() {
             } catch( Exception $e ) {
                 // damn
             }
-            
+
             // Mark as on-hold
-            $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'woocommerce' ));
+            // $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'woocommerce' ));
 
             // Reduce stock levels
             $order->reduce_order_stock();
