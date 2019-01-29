@@ -4,6 +4,11 @@
             .button {
                 pointer-events: none;
                 visibility: hidden;
+
+                &.view {
+                    visibility: visible;
+                    pointer-events: all;
+                }
             }
         }
     }
