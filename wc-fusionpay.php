@@ -84,7 +84,12 @@ function init_wc_fusionpay() {
             $args['sign'] = $this->getSignature( $args );
             $xml_url = API_URL . http_build_query($args);
             
-            var_dump($xml_url);
+            try {
+                $xml = simplexml_load_file($xml_url);
+                print_r($xml);
+            } catch(Exception $e) {
+                exit('error: ' . $e->getMessage());
+            }
 
             exit;
 
