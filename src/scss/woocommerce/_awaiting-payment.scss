@@ -1,0 +1,19 @@
+.awaiting-payment {
+    text-align: center;
+
+    .payment-qrcode {
+        transition: .3s ease;
+        border-radius: 30px;
+
+        &:hover {
+            background: $brand-secondary-color;
+        }
+    }
+
+    .payment-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+}
