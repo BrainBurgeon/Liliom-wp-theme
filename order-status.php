@@ -29,6 +29,7 @@ try {
         $api_url = $options['apiurl'] . 'tgpaycheck.php?' . http_build_query( $args );
         $api_response = simplexml_load_file($api_url);
 
+        $response['args'] = $args;
         $response['api_response'] = $api_response;
 
         if ( $api_response->is_success == 'T' ) {
