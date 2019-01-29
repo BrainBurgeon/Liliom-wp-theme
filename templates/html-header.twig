@@ -7,4 +7,5 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.description }}">
     <link rel="stylesheet" href="{{ site.theme.link }}/dist/liliom.css?v={{ theme.version }}" />
+    <script>var liliom = { site_url: '{{ function("get_site_url") }}' };</script>
     <!--sse-->{{ function('wp_head') }}<!--/sse-->
