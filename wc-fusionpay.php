@@ -76,11 +76,15 @@ function init_wc_fusionpay() {
             );
         }
 
-        function process_payment( $order_id ) {
+        public function process_payment( $order_id ) {
             global $woocommerce;
             $order = new WC_Order( $order_id );
 
-            var_dump($order);
+            $args = $this->getArgs( $order );
+            $args['sign'] = $this->getSignature( $args );
+            
+
+            var_dump(http_build_query($args));
 
             exit;
 
@@ -99,6 +103,19 @@ function init_wc_fusionpay() {
                 'result' => 'success',
                 'redirect' => $this->get_return_url( $order )
             );
+        }
+
+        private function getArgs( $oder ) {
+            return array(
+                'it_b_pay' => '1c',
+                'merchants_id' => $this->merchant_id,
+                'out_trade_no' => $this->merchant_id . '_' . $order->id,
+                'total_fee' => $order->total
+            );
+        }
+
+        private function getSignature( $args ) {
+            return md5( http_build_query( $args ) . $this->token );
         }
     }
 }
