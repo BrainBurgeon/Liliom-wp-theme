@@ -21,8 +21,14 @@ try {
 
     if ( $order->data['payment_method'] === 'wc_fusionpay' && $order->data['status'] === 'pending' ) {
         $options = get_option('woocommerce_wc_fusionpay_settings');
+        $args = array(
+            'merchants_id' => $options['merchantid'],
+            'out_trade_no' => $options['merchantid'] . '_' . $order_id
+        );
+        $args['sign'] = md5( http_build_query( $args ) . $options['token'] );
+        $api_url = $options['apiurl'] . 'tgpaycheck.php?' . http_build_query( $args );
         echo '<pre>';
-        var_export($options);
+        var_export($api_url);
     }
 }
 catch( Exception $e ) {

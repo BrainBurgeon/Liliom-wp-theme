@@ -12,8 +12,6 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 	return;
 }
 
-const API_URL = 'https://sys.tgpaypro.com:8443/api/tgpayqrcode.php?';
-
 add_filter( 'woocommerce_payment_gateways', 'wc_add_fusionpay_gateway' );
 
 function wc_add_fusionpay_gateway( $gateways ) {
@@ -67,7 +65,7 @@ function init_wc_fusionpay() {
                 'apiurl' => array(
                     'title' => __( 'API URL', 'woocommerce' ),
                     'type' => 'text',
-                    'default' => ''
+                    'default' => 'https://sys.tgpaypro.com:8443/api/'
                 ),
                 'merchantid' => array(
                     'title' => __( 'Merchant ID', 'woocommerce' ),
@@ -88,7 +86,7 @@ function init_wc_fusionpay() {
 
             $args = $this->getArgs( $order );
             $args['sign'] = $this->getSignature( $args );
-            $xml_url = API_URL . http_build_query($args);
+            $xml_url = $this->api_url . 'tgpayqrcode.php?' . http_build_query($args);
 
             var_export($xml_url);
             
