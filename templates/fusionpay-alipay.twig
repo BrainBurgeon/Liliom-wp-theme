@@ -1,3 +1,10 @@
-<p>{{ order_data.total }} {{ order_data.currency }}</p>
-<p><img src="{{ meta.small_pic_url }}" /></p>
-<p><a href="{{ meta.qr_code }}" target="_blank">Alipay</a></p>
+<h1>{{ __('Awaiting payment', 'liliom') }}</h1>
+<div class="fusionpay alipay">
+    <p class="total">{{ order_data.total }} {{ order_data.currency }}</p>
+    <p class="payment">
+        <a href="{{ meta.qr_code }}" target="_blank" class="payment-link">
+            <img src="{{ meta.small_pic_url }}" alt="{{ __('Pay with Alipay', 'liliom') }}" class="payment-qrcode" />
+            <span class="payment-caption">{{ __('Pay with Alipay', 'liliom') }}</span>
+        </a>
+    </p>
+</div>

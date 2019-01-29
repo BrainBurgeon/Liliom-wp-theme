@@ -1,8 +1,9 @@
 <?php
 /*
-Plugin Name: Fusionpay for WooCommerce
-Version:     0.1
-Author:      Adrian
+    Plugin Name: Fusionpay for WooCommerce
+    Version: 0.1
+    Author: Adrian
+    Text Domain: wcfusionpay
 */
 
 defined( 'ABSPATH' ) or exit;
@@ -61,35 +62,35 @@ function init_wc_fusionpay() {
         public function init_form_fields() {
             $this->form_fields = array(
                 'enabled' => array(
-                    'title' => __( 'Enable/Disable', 'woocommerce' ),
+                    'title' => __( 'Enable/Disable', 'wcfusionpay' ),
                     'type' => 'checkbox',
-                    'label' => __( 'Enable Fusionpay Payment', 'woocommerce' ),
+                    'label' => __( 'Enable Fusionpay Payment', 'wcfusionpay' ),
                     'default' => 'yes'
                 ),
                 'title' => array(
-                    'title' => __( 'Title', 'woocommerce' ),
+                    'title' => __( 'Title', 'wcfusionpay' ),
                     'type' => 'text',
-                    'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
-                    'default' => __( 'Fusionpay Payment', 'woocommerce' ),
+                    'description' => __( 'This controls the title which the user sees during checkout.', 'wcfusionpay' ),
+                    'default' => __( 'Fusionpay Payment', 'wcfusionpay' ),
                     'desc_tip' => true,
                 ),
                 'description' => array(
-                    'title' => __( 'Customer Message', 'woocommerce' ),
+                    'title' => __( 'Customer Message', 'wcfusionpay' ),
                     'type' => 'textarea',
                     'default' => ''
                 ),
                 'apiurl' => array(
-                    'title' => __( 'API URL', 'woocommerce' ),
+                    'title' => __( 'API URL', 'wcfusionpay' ),
                     'type' => 'text',
                     'default' => 'https://sys.tgpaypro.com:8443/api/'
                 ),
                 'merchantid' => array(
-                    'title' => __( 'Merchant ID', 'woocommerce' ),
+                    'title' => __( 'Merchant ID', 'wcfusionpay' ),
                     'type' => 'text',
                     'default' => ''
                 ),
                 'token' => array(
-                    'title' => __( 'Token', 'woocommerce' ),
+                    'title' => __( 'Token', 'wcfusionpay' ),
                     'type' => 'text',
                     'default' => ''
                 )
@@ -115,7 +116,7 @@ function init_wc_fusionpay() {
             }
 
             // Mark as on-hold
-            // $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'woocommerce' ));
+            // $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'wcfusionpay' ));
 
             // Reduce stock levels
             $order->reduce_order_stock();
