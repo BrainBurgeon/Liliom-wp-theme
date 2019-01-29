@@ -13,13 +13,21 @@
 </div>
 
 <script>
-window.onload = function() {
-    if( typeof jQuery === 'undefined' ) return;
-    var order_received_url = '{{ function("wc_get_endpoint_url", "order-received", order_id) }}';
+var order_received_url = '{{ function("wc_get_endpoint_url", "order-received", order_id) }}';
+var timer = null;
+window.onload = function () {
+    if ( typeof jQuery === 'undefined' ) return;
+    checkStatus();
+};
+function checkStatus() {
+    if ( timer ) clearTimeout(timer);
     jQuery.getJSON( liliom.theme_link + '/order-status.php?id={{ order_id }}', function( data ) {
-        if( data.success ) {
-
+        if ( data.success ) {
+            if ( data.status === 'processing' ) {
+                window.location.replace(order_received_url);
+            }
+            timer = setTimeout(checkStatus, 3000);
         }
     } );
-};
+}
 </script>
