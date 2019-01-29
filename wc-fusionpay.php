@@ -22,9 +22,9 @@ function wc_add_fusionpay_gateway( $gateways ) {
 
 add_action( 'woocommerce_receipt_wc_fusionpay', 'add_fusionpay_payment', 10, 1 );
 function add_fusionpay_payment( $order_id ) {
-    $meta = get_post_meta($order_id, META_KEY);
+    // $meta = get_post_meta($order_id, META_KEY);
     echo '<pre>';
-    var_export($meta);
+    // var_export($meta);
     echo '</pre>';
 }
 
