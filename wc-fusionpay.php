@@ -87,14 +87,8 @@ function init_wc_fusionpay() {
             try {
                 $xml = simplexml_load_file($xml_url);
                 if ( $xml->is_success == 'T' ) {
-                    $xml_array = $this->xml2array($xml);
-                    $data = array(
-                        // 'tgpayqrcode_out_trade_no' => $this->getOutTradeNo( $order_id ),
-                        'tgpayqrcode_pic_url' => $xml_array['pic_url'],
-                        'tgpayqrcode_qr_code' => $xml_array['qr_code']
-                    );
-                    $order->set_meta_data($data);
-                    $order->save_meta_data();
+                    // $xml_array = $this->xml2array($xml);
+                    add_post_meta( $order_id, 'tgpayqrcode', $xml );
                 }
             } catch( Exception $e ) {
                 // damn
