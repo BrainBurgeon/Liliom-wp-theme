@@ -1,3 +1,3 @@
 <?php
 
-var_dump(get_post_meta($order->id));
+var_dump(get_post_meta($order->id, 'tgpayqrcode'));
