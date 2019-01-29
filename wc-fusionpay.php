@@ -86,9 +86,9 @@ function init_wc_fusionpay() {
             
             try {
                 $xml = simplexml_load_file($xml_url);
+                $array = $this->xml2array($xml);
+                var_export($array);
                 if ( $xml->is_success === 'T' ) {
-                    $array = $this->xml2array($xml);
-                    var_export($array);
                 }
             } catch( Exception $e ) {
                 // damn
