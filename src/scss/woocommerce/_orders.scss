@@ -1,0 +1,10 @@
+.woocommerce-orders-table {
+    .woocommerce-orders-table__row--status-failed {
+        .woocommerce-orders-table__cell-order-actions {
+            .button {
+                pointer-events: none;
+                visibility: hidden;
+            }
+        }
+    }
+}
