@@ -105,7 +105,7 @@ function init_wc_fusionpay() {
             );
         }
 
-        private function getArgs( $oder ) {
+        private function getArgs( $order ) {
             return array(
                 'it_b_pay' => '1c',
                 'merchants_id' => $this->merchant_id,
