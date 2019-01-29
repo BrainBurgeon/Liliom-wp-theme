@@ -107,9 +107,6 @@ function init_wc_fusionpay() {
                 // damn
             }
 
-            // Mark as on-hold
-            // $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'woocommerce' ));
-
             // Reduce stock levels
             $order->reduce_order_stock();
 
@@ -119,7 +116,7 @@ function init_wc_fusionpay() {
             // Return thankyou redirect
             return array(
                 'result' => 'success',
-                'redirect' => $this->get_checkout_payment_url()
+                'redirect' => $order->get_checkout_payment_url()
             );
         }
 
