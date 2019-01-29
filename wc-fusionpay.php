@@ -93,7 +93,8 @@ function init_wc_fusionpay() {
                         'tgpayqrcode_pic_url' => $xml_array['pic_url'],
                         'tgpayqrcode_qr_code' => $xml_array['qr_code']
                     );
-                    $order->set_meta_data($data)->save();
+                    $order->set_meta_data($data);
+                    $order->save();
                 }
             } catch( Exception $e ) {
                 // damn
