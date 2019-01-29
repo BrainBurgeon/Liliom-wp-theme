@@ -23,7 +23,7 @@ try {
         $options = get_option('woocommerce_wc_fusionpay_settings');
         $args = array(
             'merchants_id' => $options['merchantid'],
-            'out_trade_no' => $options['merchantid'] . '_' . $order_id
+            'out_trade_no' => $options['merchantid'] . $order_id
         );
         $args['sign'] = md5( http_build_query( $args ) . $options['token'] );
         $api_url = $options['apiurl'] . 'tgpaycheck.php?' . http_build_query( $args );

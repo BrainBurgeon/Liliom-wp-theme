@@ -132,7 +132,7 @@ function init_wc_fusionpay() {
         }
 
         private function getOutTradeNo( $order_id ) {
-            return $this->merchant_id . '_' . $order_id;
+            return $this->merchant_id . $order_id;
         }
 
         private function xml2array( $xmlObject, $out = array () ) {
