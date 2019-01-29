@@ -6,6 +6,7 @@ if( is_array( $meta ) && count( $meta ) == 1 ) {
 }
 
 $context = Timber::get_context();
+$context['order_id'] = $order->id;
 $context['order_data'] = $order->data;
 $context['meta'] = $meta;
 

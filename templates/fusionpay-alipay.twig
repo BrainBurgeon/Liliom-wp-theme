@@ -15,7 +15,7 @@
 <script>
 window.onload = function() {
     if( typeof jQuery === 'undefined' ) return;
-    jQuery.getJSON(liliom.theme_link + '/order-status.php', function(data) {
+    jQuery.getJSON(liliom.theme_link + '/order-status.php?id={{ order_id }}', function(data) {
         console.info(data);
     });
 };
