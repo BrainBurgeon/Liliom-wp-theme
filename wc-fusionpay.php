@@ -94,7 +94,7 @@ function init_wc_fusionpay() {
                         'tgpayqrcode_qr_code' => $xml_array['qr_code']
                     );
                     $order->set_meta_data($data);
-                    $order->save();
+                    $order->save_meta_data();
                 }
             } catch( Exception $e ) {
                 // damn
