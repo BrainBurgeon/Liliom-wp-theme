@@ -37,6 +37,8 @@ function init_wc_fusionpay() {
 
             $this->title = $this->get_option( 'title' );
             $this->description  = $this->get_option( 'description' );
+            $this->merchant_id = $this->get_option( 'merchantid' );
+            $this->token = $this->get_option( 'token' );
 
             add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
         }
@@ -77,6 +79,10 @@ function init_wc_fusionpay() {
         function process_payment( $order_id ) {
             global $woocommerce;
             $order = new WC_Order( $order_id );
+
+            var_dump($order);
+
+            exit;
 
             // Mark as on-hold
             $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'woocommerce' ));
