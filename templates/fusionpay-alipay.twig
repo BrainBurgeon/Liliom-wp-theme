@@ -15,8 +15,11 @@
 <script>
 window.onload = function() {
     if( typeof jQuery === 'undefined' ) return;
-    jQuery.getJSON(liliom.theme_link + '/order-status.php?id={{ order_id }}', function(data) {
-        console.info(data);
-    });
+    var order_received_url = '{{ function("wc_get_endpoint_url", "order-received", order_id) }}';
+    jQuery.getJSON( liliom.theme_link + '/order-status.php?id={{ order_id }}', function( data ) {
+        if( data.success ) {
+
+        }
+    } );
 };
 </script>
