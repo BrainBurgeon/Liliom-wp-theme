@@ -1,9 +1,11 @@
 <?php
 
+$response = array('success' => true);
+
 try {
     $order_id = intval($_GET['id']);
 
-    if(empty($order_id)) exit('-1');
+    if( empty($order_id) ) exit('-1');
 
     define( 'WC_ABSPATH', dirname( __FILE__ ) . '/../../plugins/woocommerce/' );
 
@@ -15,8 +17,14 @@ try {
 
     $order = new WC_Order($order_id);
 
-    echo '<pre>';
-    var_export($order);
-} catch(Exception $e) {
-    exit('-2');
+    $response['status'] = $order->data['status'];
+
+    if ( $order->data['payment_method'] === 'wc_fusionpay' && $order->data['status'] === 'pending' ) {
+
+    }
+} catch( Exception $e ) {
+    $response = array('success' => false);
 }
+
+header('Content-Type: application/json');
+echo json_encode($response);
