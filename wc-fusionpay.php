@@ -12,6 +12,8 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 	return;
 }
 
+const META_KEY = 'tgpayqrcode';
+
 add_filter( 'woocommerce_payment_gateways', 'wc_add_fusionpay_gateway' );
 function wc_add_fusionpay_gateway( $gateways ) {
 	$gateways[] = 'WC_Gateway_Fusionpay';
@@ -20,9 +22,9 @@ function wc_add_fusionpay_gateway( $gateways ) {
 
 add_action( 'woocommerce_receipt_wc_fusionpay', 'add_fusionpay_payment', 10, 1 );
 function add_fusionpay_payment( $order_id ) {
-    $order = new WC_Order( $order_id );
+    $meta = get_post_meta($order_id, META_KEY);
     echo '<pre>';
-    var_export($order);
+    var_export($meta);
     echo '</pre>';
 }
 
@@ -99,7 +101,7 @@ function init_wc_fusionpay() {
                 $xml = simplexml_load_file($xml_url);
                 if ( $xml->is_success == 'T' && $xml->result_code == 'SUCCESS' ) {
                     $xml_array = $this->xml2array($xml);
-                    add_post_meta( $order_id, 'tgpayqrcode', $xml_array );
+                    add_post_meta( $order_id, META_KEY, $xml_array );
                 }
             } catch( Exception $e ) {
                 // damn
