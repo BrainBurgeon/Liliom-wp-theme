@@ -5,7 +5,7 @@ $response = array('success' => true);
 try {
     $order_id = intval($_GET['id']);
 
-    if( empty($order_id) ) exit('-1');
+    if( empty($order_id) ) throw new Exception('Missing parameter: order_id');
 
     define( 'WC_ABSPATH', dirname( __FILE__ ) . '/../../plugins/woocommerce/' );
 
