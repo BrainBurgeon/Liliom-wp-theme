@@ -86,9 +86,12 @@ function init_wc_fusionpay() {
             
             try {
                 $xml = simplexml_load_file($xml_url);
-                print_r($xml);
-            } catch(Exception $e) {
-                exit('error: ' . $e->getMessage());
+                if ( $xml->is_success === 'T' ) {
+                    $array = $this->xml2array($xml);
+                    var_export($array);
+                }
+            } catch( Exception $e ) {
+                // damn
             }
 
             exit;
@@ -108,6 +111,14 @@ function init_wc_fusionpay() {
                 'result' => 'success',
                 'redirect' => $this->get_return_url( $order )
             );
+        }
+
+        private function xml2array( $xmlObject, $out = array () ) {
+            foreach( (array) $xmlObject as $index => $node ) {
+                $out[$index] = is_object( $node ) ? $this->xml2array( $node ) : $node;
+            }
+
+            return $out;
         }
 
         private function getArgs( $order ) {
