@@ -13,10 +13,17 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 }
 
 add_filter( 'woocommerce_payment_gateways', 'wc_add_fusionpay_gateway' );
-
 function wc_add_fusionpay_gateway( $gateways ) {
 	$gateways[] = 'WC_Gateway_Fusionpay';
 	return $gateways;
+}
+
+add_action( 'woocommerce_receipt_wc_fusionpay', 'add_fusionpay_payment', 10, 1 );
+function add_fusionpay_payment( $order_id ) {
+    $order = new WC_Order( $order_id );
+    echo '<pre>';
+    var_export($order);
+    echo '</pre>';
 }
 
 
@@ -99,7 +106,7 @@ function init_wc_fusionpay() {
             }
 
             // Mark as on-hold
-            $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'woocommerce' ));
+            // $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'woocommerce' ));
 
             // Reduce stock levels
             $order->reduce_order_stock();
@@ -110,7 +117,7 @@ function init_wc_fusionpay() {
             // Return thankyou redirect
             return array(
                 'result' => 'success',
-                'redirect' => $this->get_return_url( $order )
+                'redirect' => $this->get_checkout_payment_url()
             );
         }
 
