@@ -11,3 +11,8 @@
         </p>
     </div>
 </div>
+
+{% block footer %}
+    {{ parent() }}
+    <script>alert('hi')</script>
+{% endblock %}
