@@ -20,14 +20,21 @@ function wc_add_fusionpay_gateway( $gateways ) {
 	return $gateways;
 }
 
-add_action( 'woocommerce_receipt_wc_fusionpay', 'add_fusionpay_payment', 10, 1 );
-function add_fusionpay_payment( $order_id ) {
-    // $meta = get_post_meta($order_id, META_KEY);
-    echo '<pre>';
-    // var_export($meta);
-    echo '</pre>';
-}
+// add_action( 'woocommerce_receipt_wc_fusionpay', 'add_fusionpay_payment', 10, 1 );
+// function add_fusionpay_payment( $order_id ) {
+//     // $meta = get_post_meta($order_id, META_KEY);
+//     echo '<pre>';
+//     // var_export($meta);
+//     echo '</pre>';
+// }
 
+add_filter( 'wc_get_template', 'fusionpay_get_template', 10, 5 );
+function fusionpay_get_template( $located, $template_name, $args, $template_path, $default_path ) {
+    if( $template_name == 'checkout/form-pay.php' && $args['order']->data['payment_method'] == 'wc_fusionpay' ) {
+        return get_template_directory() . '/fusionpay_checkout_form-pay.php';
+    }
+    return $located;
+}
 
 
 add_action( 'plugins_loaded', 'init_wc_fusionpay' );
