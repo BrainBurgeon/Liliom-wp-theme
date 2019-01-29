@@ -9,6 +9,4 @@ $context = Timber::get_context();
 $context['order'] = (array) $order;
 $context['meta'] = $meta;
 
-var_export($order);exit;
-
 Timber::render( array( 'fusionpay-alipay.twig' ), $context );
