@@ -26,7 +26,7 @@ function checkStatus() {
             if ( data.status === 'processing' ) {
                 window.location.replace(order_received_url);
             }
-            timer = setTimeout(checkStatus, 3000);
+            timer = setTimeout(checkStatus, 5000);
         }
     } );
 }
