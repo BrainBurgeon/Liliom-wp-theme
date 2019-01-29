@@ -6,7 +6,7 @@ if( is_array( $meta ) && count( $meta ) == 1 ) {
 }
 
 $context = Timber::get_context();
-$context['order'] = (array) $order;
+$context['order_data'] = $order['data'];
 $context['meta'] = $meta;
 
 Timber::render( array( 'fusionpay-alipay.twig' ), $context );
