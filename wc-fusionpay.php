@@ -87,14 +87,19 @@ function init_wc_fusionpay() {
             try {
                 $xml = simplexml_load_file($xml_url);
                 if ( $xml->is_success == 'T' ) {
-                    $data = array('tgpayqrcode' => $this->xml2array($xml));
+                    $xml_array = $this->xml2array($xml);
+                    $data = array(
+                        // 'tgpayqrcode_out_trade_no' => $this->getOutTradeNo( $order_id ),
+                        'tgpayqrcode_pic_url' => $xml_array['pic_url'],
+                        'tgpayqrcode_qr_code' => $xml_array['qr_code']
+                    );
                     $order->set_meta_data($data);
                 }
             } catch( Exception $e ) {
                 // damn
             }
 
-            var_export($order->get_meta('tgpayqrcode'));
+            var_export($order->get_meta('tgpayqrcode_pic_url'));
             exit;
 
             // Mark as on-hold
@@ -114,11 +119,14 @@ function init_wc_fusionpay() {
             );
         }
 
+        private function getOutTradeNo( $order_id ) {
+            return $this->merchant_id . '_' . $order_id;
+        }
+
         private function xml2array( $xmlObject, $out = array () ) {
             foreach( (array) $xmlObject as $index => $node ) {
                 $out[$index] = is_object( $node ) ? $this->xml2array( $node ) : $node;
             }
-
             return $out;
         }
 
@@ -126,7 +134,7 @@ function init_wc_fusionpay() {
             return array(
                 'it_b_pay' => '1c',
                 'merchants_id' => $this->merchant_id,
-                'out_trade_no' => $this->merchant_id . '_' . $order->id,
+                'out_trade_no' => $this->getOutTradeNo($order->id),
                 'total_fee' => $order->total
             );
         }
