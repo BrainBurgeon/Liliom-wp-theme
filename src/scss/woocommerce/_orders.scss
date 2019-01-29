@@ -3,10 +3,10 @@
         .woocommerce-orders-table__cell-order-actions {
             .button {
                 pointer-events: none;
-                visibility: hidden;
+                display: none;
 
                 &.view {
-                    visibility: visible;
+                    display: inline-block;
                     pointer-events: all;
                 }
             }
