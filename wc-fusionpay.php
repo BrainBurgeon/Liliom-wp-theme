@@ -102,13 +102,13 @@ function init_wc_fusionpay() {
 
             $args = $this->getArgs( $order );
             $args['sign'] = $this->getSignature( $args );
-            $xml_url = $this->api_url . 'tgpayqrcode.php?' . http_build_query( $args );
+            $xml_url = $this->api_url . 'Xtgpayqrcode.php?' . http_build_query( $args );
             
             try {
                 $api_response = simplexml_load_file( $xml_url );
                 $api_response_array = json_decode( json_encode( (array) $api_response ), true );
                 var_export($api_response_array);exit;
-                if ( $api_response !== false && $api_response->result_code == 'SUCCESS' ) {
+                if ( $api_response !== false && $api_response['result_code'] == 'SUCCESS' ) {
                     // $api_response_array = $this->xml2array( $api_response );
                     add_post_meta( $order_id, 'tgpayqrcode', $api_response );
                 }
