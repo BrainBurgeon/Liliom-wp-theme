@@ -115,11 +115,9 @@ function init_wc_fusionpay() {
                 // damn
             }
 
-            // Mark as on-hold
-            // $order->update_status('on-hold', __( 'Awaiting Fusionpay payment', 'wcfusionpay' ));
-
             // Reduce stock levels
-            $order->reduce_order_stock();
+            // $order->reduce_order_stock();
+            wc_reduce_stock_levels( $order_id );
 
             // Remove cart
             $woocommerce->cart->empty_cart();
@@ -142,8 +140,8 @@ function init_wc_fusionpay() {
             return array(
                 'it_b_pay' => '1c',
                 'merchants_id' => $this->merchant_id,
-                'out_trade_no' => $this->merchant_id . $order->id,
-                'total_fee' => $order->total
+                'out_trade_no' => $this->merchant_id . $order->get_id(),
+                'total_fee' => $order->get_total()
             );
         }
 
