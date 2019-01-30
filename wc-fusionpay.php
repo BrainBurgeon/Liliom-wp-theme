@@ -13,8 +13,6 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 	return;
 }
 
-const META_KEY = 'tgpayqrcode';
-
 add_filter( 'woocommerce_payment_gateways', 'wc_add_fusionpay_gateway' );
 function wc_add_fusionpay_gateway( $gateways ) {
 	$gateways[] = 'WC_Gateway_Fusionpay';
@@ -29,6 +27,7 @@ function wc_add_fusionpay_gateway( $gateways ) {
 //     echo '</pre>';
 // }
 
+// Use our own template on the payment form page
 add_filter( 'wc_get_template', 'fusionpay_get_template', 10, 5 );
 function fusionpay_get_template( $located, $template_name, $args, $template_path, $default_path ) {
     if( $template_name == 'checkout/form-pay.php' && $args['order']->data['payment_method'] == 'wc_fusionpay' ) {
@@ -103,15 +102,16 @@ function init_wc_fusionpay() {
 
             $args = $this->getArgs( $order );
             $args['sign'] = $this->getSignature( $args );
-            $xml_url = $this->api_url . 'tgpayqrcode.php?' . http_build_query($args);
+            $xml_url = $this->api_url . 'tgpayqrcode.php?' . http_build_query( $args );
             
             try {
-                $xml = simplexml_load_file($xml_url);
-                if ( $xml !== false && $xml->is_success == 'T' && $xml->result_code == 'SUCCESS' ) {
-                    $xml_array = $this->xml2array($xml);
-                    add_post_meta( $order_id, META_KEY, $xml_array );
+                $api_response = simplexml_load_file( $xml_url );
+                if ( $api_response !== false && $api_response->result_code == 'SUCCESS' ) {
+                    $api_response_array = $this->xml2array( $api_response );
+                    add_post_meta( $order_id, 'tgpayqrcode', $api_response_array );
                 }
-            } catch( Exception $e ) {
+            }
+            catch ( Exception $e ) {
                 // damn
             }
 
@@ -124,20 +124,16 @@ function init_wc_fusionpay() {
             // Remove cart
             $woocommerce->cart->empty_cart();
 
-            // Return thankyou redirect
+            // Return payment redirect
             return array(
                 'result' => 'success',
                 'redirect' => $order->get_checkout_payment_url()
             );
         }
 
-        private function getOutTradeNo( $order_id ) {
-            return $this->merchant_id . $order_id;
-        }
-
         private function xml2array( $xmlObject, $out = array () ) {
-            foreach ($xmlObject->children() as $node) {
-                $out[$node->getName()] = is_array($node) ? $this->xml2array($node) : (string) $node;
+            foreach ( $xmlObject->children() as $node ) {
+                $out[ $node->getName() ] = is_array( $node ) ? $this->xml2array( $node ) : $node;
             }
             return $out;
         }
@@ -146,7 +142,7 @@ function init_wc_fusionpay() {
             return array(
                 'it_b_pay' => '1c',
                 'merchants_id' => $this->merchant_id,
-                'out_trade_no' => $this->getOutTradeNo($order->id),
+                'out_trade_no' => $this->merchant_id . $order->id,
                 'total_fee' => $order->total
             );
         }

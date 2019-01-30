@@ -1,11 +1,11 @@
 <?php
 
-$response = array('success' => true);
+$response = array( 'success' => true );
 
 try {
-    $order_id = intval($_GET['id']);
+    $order_id = intval( $_GET['id'] );
 
-    if( empty($order_id) ) throw new Exception('Missing parameter: order_id');
+    if( empty( $order_id ) ) throw new Exception( 'Missing id parameter' );
 
     define( 'WC_ABSPATH', dirname( __FILE__ ) . '/../../plugins/woocommerce/' );
 
@@ -27,9 +27,8 @@ try {
         );
         $args['sign'] = md5( http_build_query( $args ) . $options['token'] );
         $api_url = $options['apiurl'] . 'tgpaycheck.php?' . http_build_query( $args );
-        $api_response = simplexml_load_file($api_url);
+        $api_response = simplexml_load_file( $api_url );
 
-        $response['args'] = $args;
         $response['api_response'] = $api_response;
 
         if ( $api_response->is_success == 'T' ) {
@@ -45,8 +44,8 @@ try {
     }
 }
 catch ( Exception $e ) {
-    $response = array('success' => false);
+    $response = array( 'success' => false, 'error' => $e->getMessage() );
 }
 
-header('Content-Type: application/json');
-echo json_encode($response);
+header( 'Content-Type: application/json' );
+echo json_encode( $response );
