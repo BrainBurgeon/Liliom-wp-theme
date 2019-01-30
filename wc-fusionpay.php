@@ -107,8 +107,8 @@ function init_wc_fusionpay() {
             try {
                 $api_response = simplexml_load_file( $xml_url );
                 if ( $api_response !== false && $api_response->result_code == 'SUCCESS' ) {
-                    $api_response_array = $this->xml2array( $api_response );
-                    add_post_meta( $order_id, 'tgpayqrcode', $api_response_array );
+                    // $api_response_array = $this->xml2array( $api_response );
+                    add_post_meta( $order_id, 'tgpayqrcode', $api_response );
                 }
             }
             catch ( Exception $e ) {
