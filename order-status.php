@@ -15,7 +15,7 @@ try {
     require_once(WC_ABSPATH . 'includes/class-wc-order.php');
     require_once(ABSPATH . 'wp-includes/functions.php');
 
-    $order = new WC_Order($order_id);
+    $order = new WC_Order( $order_id );
 
     $response['status'] = $order->data['status'];
 
@@ -37,10 +37,10 @@ try {
                 $order->payment_complete( $api_response->alipay_trans_id );
                 $response['status'] = $order->get_status();
             }
-            else if ( $api_response->trade_status == 'TRADE_NOT_EXIST' ) {
-                // $order->update_status('failed');
-                $response['status'] = $order->get_status();
-            }
+            // else if ( $api_response->trade_status == 'TRADE_NOT_EXIST' ) {
+            //     $order->update_status('failed');
+            //     $response['status'] = $order->get_status();
+            // }
         }
     }
 }
