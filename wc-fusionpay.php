@@ -107,9 +107,13 @@ function init_wc_fusionpay() {
             try {
                 $api_response = simplexml_load_file( $xml_url );
                 $api_response_array = json_decode( json_encode( (array) $api_response ), true );
+                var_export(isset( $api_response_array['result_code'] ));
+                var_export($api_response_array['result_code']);
                 if ( isset( $api_response_array['result_code'] ) && $api_response_array['result_code'] == 'SUCCESS' ) {
-                    add_post_meta( $order_id, 'tgpayqrcode', $api_response_array );
+                    echo 'xxx';
+                    // add_post_meta( $order_id, 'tgpayqrcode', $api_response_array );
                 }
+                exit('-');
             }
             catch ( Exception $e ) {
                 // damn
