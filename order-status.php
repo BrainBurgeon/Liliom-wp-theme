@@ -29,18 +29,14 @@ try {
         $api_url = $options['apiurl'] . 'tgpaycheck.php?' . http_build_query( $args );
         $api_response = simplexml_load_file( $api_url );
 
-        $response['api_url'] = $api_url;
-        $response['api_response'] = $api_response;
+        // $response['api_url'] = $api_url;
+        // $response['api_response'] = $api_response;
 
         if ( $api_response->is_success == 'T' ) {
             if ( $api_response->trade_status == 'TRADE_SUCCESS' ) {
-                $order->payment_complete( $api_response->alipay_trans_id );
+                $order->payment_complete( (string) $api_response->alipay_trans_id );
                 $response['status'] = $order->get_status();
             }
-            // else if ( $api_response->trade_status == 'TRADE_NOT_EXIST' ) {
-            //     $order->update_status('failed');
-            //     $response['status'] = $order->get_status();
-            // }
         }
     }
 }

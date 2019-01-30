@@ -29,9 +29,9 @@ function checkStatus() {
     jQuery.getJSON( liliom.theme_link + '/order-status.php?id={{ order_id }}', function( data ) {
         if ( data.success ) {
             if ( data.status === 'processing' ) {
-                window.location.replace(order_received_url);
+                window.location.replace( order_received_url );
             }
-            timer = setTimeout(checkStatus, 5000);
+            timer = setTimeout( checkStatus, 5000 );
         }
     } );
 }
