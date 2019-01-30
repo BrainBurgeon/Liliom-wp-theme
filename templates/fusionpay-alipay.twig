@@ -1,3 +1,8 @@
+<p>Order ID: {{ order_id }}<p>
+
+{% if meta is empty %}
+<p>{{ __('An error occured during payment. Please contact us!', 'liliom') }}</p>
+{% else %}
 <div class="awaiting-payment">
     <h1>{{ __('Awaiting payment', 'liliom') }}</h1>
     <h2 class="total">{{ order_data.total }} {{ order_data.currency }}</h2>
@@ -31,3 +36,4 @@ function checkStatus() {
     } );
 }
 </script>
+{% endif %}
