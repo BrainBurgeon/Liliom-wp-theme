@@ -103,6 +103,8 @@ function init_wc_fusionpay() {
             $args = $this->getArgs( $order );
             $args['sign'] = $this->getSignature( $args );
             $xml_url = $this->api_url . 'tgpayqrcode.php?' . http_build_query( $args );
+
+            exit($xml_url);
             
             try {
                 $api_response = simplexml_load_file( $xml_url );
