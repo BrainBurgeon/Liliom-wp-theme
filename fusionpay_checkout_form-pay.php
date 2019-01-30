@@ -1,9 +1,9 @@
 <?php
 
 $meta = get_post_meta( $order->id, 'tgpayqrcode' );
-if( is_array( $meta ) && count( $meta ) == 1 ) {
-    $meta = $meta[0];
-}
+// if( is_array( $meta ) && count( $meta ) == 1 ) {
+    // $meta = $meta[0];
+// }
 
 echo '<pre>';
 var_export($meta);
