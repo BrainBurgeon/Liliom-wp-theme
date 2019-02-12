@@ -16,6 +16,8 @@ class Liliom extends Timber\Site {
 
         ### WooCommerce
         add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+        // Uncheck the "Deliver to a different address?" checkbox
+        add_filter( 'woocommerce_ship_to_different_address_checked', '__return_false' );
         remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
         // Remove product images from the shop loop
         remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
