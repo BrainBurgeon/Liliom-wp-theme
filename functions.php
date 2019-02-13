@@ -52,11 +52,13 @@ class Liliom extends Timber\Site {
 
     public function set_my_locale($lang) {
         global $translations;
-        $lang_key = $_SERVER['HTTP_CF_IPCOUNTRY'];
-        if ( !empty($_GET['language'])) {
+        $lang_key = '';
+        if ( !empty( $_GET['language'] ) ) {
             $lang_key = $_GET['language'];
+        } else if ( !empty( $_SERVER['HTTP_CF_IPCOUNTRY'] ) ) {
+            $lang_key = $_SERVER['HTTP_CF_IPCOUNTRY'];
         }
-        if ( !empty($translations[$lang_key]) ) {
+        if ( !empty( $translations[$lang_key] ) ) {
             return $translations[$lang_key];
         }
         return $lang;
@@ -72,7 +74,9 @@ class Liliom extends Timber\Site {
     }
 
     public function add_to_context( $context ) {
-	    $context['CF_IPCOUNTRY'] = $_SERVER['HTTP_CF_IPCOUNTRY'];
+        if ( !empty( $_SERVER['HTTP_CF_IPCOUNTRY'] ) ) {
+            $context['CF_IPCOUNTRY'] = $_SERVER['HTTP_CF_IPCOUNTRY'];
+        }
 	    $context['menu'] = new Timber\Menu('Main Menu');
 	    $context['site'] = new TimberSite();
 	    return $context;
