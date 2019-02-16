@@ -32,10 +32,12 @@ html {
     font-weight: 500;
     color: $color-black;
     line-height: 1.5;
+    height: 100%;
 }
 
 body {
     background-color: $color-gold;
+    min-height: 100%;
 }
 
 h1,
