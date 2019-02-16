@@ -84,10 +84,13 @@
     .input-radio {
         vertical-align: middle;
     }
-    
+
     .payment_box {
         font-size: .9rem;
-        margin-left: $gutter * 2;
+
+        @media screen and (min-width: $breakpoint-small + 1) {
+            margin-left: $gutter * 2;
+        }
     }
 }
 
