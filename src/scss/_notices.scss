@@ -1,0 +1,15 @@
+.woocommerce-message,
+.woocommerce-error {
+    text-align: center;
+    margin: $gutter * 2 0;
+    padding: $gutter;
+    font-weight: normal;
+    font-size: .8rem;
+    background-color: $color-pink;
+    color: $color-white;
+    list-style: none;
+
+    a {
+        color: $color-gold;
+    }
+}

@@ -1,0 +1,75 @@
+.is-checkout {
+    a {
+        color: inherit;
+    }
+
+    .page-header {
+        pointer-events: none;
+
+        .header-content {
+            display: none;
+        }
+
+        .logo {
+            padding-left: 0;
+            border: none;
+            background: none;
+            margin: 0 auto;
+        }
+    }
+
+    .page-content {
+        margin-bottom: 100px;
+    }
+
+    .page-footer {
+        pointer-events: none;
+        background: none;
+        color: inherit;
+        box-shadow: none;
+        line-height: normal;
+        padding: 3px;
+        opacity: .8;
+        
+        dt {
+            font-family: $font-family-body;
+            letter-spacing: normal;
+            font-weight: normal;
+        }
+    }
+
+    td {
+        &.product-name {
+            display: flex;
+            align-items: center;
+
+            .the-product {
+                width: 48vw;
+            }
+        }
+
+        &.product-total {
+            text-align: center;
+        }
+    }
+
+    tfoot {
+        th {
+            text-align: right;
+        }
+    }
+
+    .place-order {
+        margin: $gutter * 3 0;
+        text-align: center;
+
+        .woocommerce-terms-and-conditions-wrapper {
+            font-size: .9rem;
+            text-align: left;
+        }
+    }
+
+    #place_order {
+        margin-top: $gutter * 5;
+    }
+}

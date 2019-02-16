@@ -1,0 +1,52 @@
+$gutter: 12px;
+$main-content-width: 980px;
+$breakpoint-medium: 812px;
+$breakpoint-small: 576px;
+
+$color-white: #fefcf8;
+$color-white-muted: rgba($color-white, .6);
+$color-black: #1d1d1d;
+$color-black-muted: rgba($color-black, .6);
+$color-pink: #fd5f81;
+$color-gold: #fbf0a2;
+$color-blue: #0261f1;
+
+$font-family-heading: Futura, Trebuchet MS, Arial, sans-serif;
+$font-family-body: medium-content-sans-serif-font, -apple-system,BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+@import 'forms';
+@import 'notices';
+@import 'animations';
+@import 'page';
+@import 'product';
+@import 'checkout';
+@import 'product-list';
+@import 'pagination';
+@import 'shop-table';
+
+html {
+    font-family: $font-family-body;
+    font-size: 18px;
+    font-weight: 500;
+    color: $color-black;
+    line-height: 1.5;
+}
+
+body {
+    background-color: $color-gold;
+}
+
+h1,
+h2,
+h3 {
+    font-family: $font-family-heading;
+    font-size: 1.8rem;
+}
+
+a {
+    color: $color-blue;
+
+    &:hover {
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,157 @@
+.page-header {
+    display: flex;
+    align-items: baseline;
+    width: $main-content-width;
+    margin: $gutter * 2 auto 0;
+
+    @media screen and (max-width: $breakpoint-small) {
+        flex-direction: column;
+    }
+
+    @media screen and (max-width: $main-content-width + $gutter * 2) {
+        margin-left: $gutter;
+        margin-right: $gutter;
+        width: auto;
+    }
+
+    .logo {
+        user-select: none;
+        font-family: $font-family-heading;
+        border: 5px solid $color-black;
+        color: $color-black;
+        background-color: $color-white;
+        padding: 11px 6px 11px 9px;
+        font-weight: bold;
+        text-decoration: none;
+        line-height: 1;
+        letter-spacing: 3px;
+        text-rendering: geometricPrecision;
+        transition: all .2s linear;
+        min-width: 120.328px;
+        text-align: center;
+
+        .nose {
+            display: inline-block;
+            transform: rotate(5deg) translateY(1px);
+            position: relative;
+
+            &:after {
+                content: '';
+                display: inline-block;
+                width: 9px;
+                height: 3px;
+                background-color: $color-pink;
+                position: absolute;
+                bottom: -5px;
+                left: 5px;
+                transform: rotate(-5deg);
+                transition: all .2s ease-in-out;
+            }
+        }
+
+        &:hover {
+            color: $color-pink;
+
+            .nose {
+                &:after {
+                    transform: rotate(-5deg) translateX(2px);
+                    width: 5px;
+                }
+            }
+        }
+    }
+
+    .header-content {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media screen and (max-width: $breakpoint-medium) {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        @media screen and (max-width: $breakpoint-small) {
+            margin-top: $gutter * 2;
+        }
+    }
+
+    .main-menu {
+        flex-grow: 1;
+        
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        li {
+            margin: 0 $gutter;
+        }
+
+        @media screen and (min-width: $breakpoint-medium + 1) {
+            order: -1;
+        }
+
+        @media screen and (max-width: $breakpoint-medium) {
+            a {
+                display: inline-block;
+                padding: $gutter;
+            }
+        }
+    }
+
+    .searchform {
+        opacity: .5;
+        filter: grayscale(1);
+        transition: all .2s ease;
+
+        @media screen and (min-width: $breakpoint-medium + 1) {
+            transform: scale(.9);
+            transform-origin: right;
+        }
+
+        &:hover {
+            opacity: 1;
+            filter: grayscale(0);
+        }
+
+        & > div {
+            display: flex;
+            align-items: center;
+        }
+
+        #s {
+            margin: 0 $gutter;
+            width: 160px;
+            min-width: 160px;
+            transform: skewX(2deg);
+        }
+
+        /*
+         *  So this is a little complex...
+         *  In the header we have [.searchform] [.main-menu] in that order
+         *  With CSS we change the order to [.main-menu] [.searchform]
+         *  This way we can reach the [.main-menu] from within [.searchform] to "hide" it, using the sibling selector (+)
+         */
+        &:focus-within {
+            opacity: 1;
+            filter: grayscale(0);
+
+            @media screen and (min-width: $breakpoint-medium + 1) {
+                + .main-menu {
+                    flex-grow: 0;
+                    width: 0;
+                    overflow: hidden;
+                }
+            }
+
+            #s {
+                width: 33vw;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.page-content {
+    width: $main-content-width;
+    margin: $gutter auto;
+
+    @media screen and (max-width: $main-content-width + $gutter * 2) {
+        margin: $gutter;
+        width: auto;
+    }
+}

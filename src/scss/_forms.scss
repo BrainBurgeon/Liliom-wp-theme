@@ -1,0 +1,107 @@
+// !important is used heavily here to overwrite select2 styles
+.input-text,
+.select2-selection,
+#s {
+    border: 3px solid $color-black !important;
+    border-radius: 0 !important;
+    height: auto !important;
+    min-height: 40px;
+    padding: 3px 6px;
+    font: inherit;
+    transition: all .2s ease;
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+        border-color: $color-pink !important;
+        color: $color-blue;
+    }
+
+    .select2-selection__rendered {
+        padding-left: 0 !important;
+    }
+    .select2-selection__arrow {
+        height: 100% !important;
+    }
+}
+
+.button:not(.add_to_cart_button),
+#searchsubmit {
+    will-change: transform;
+    $border-weigth: 3px;
+    border: $border-weigth solid transparent;
+    background-color: $color-blue;
+    color: $color-white;
+    font: inherit;
+    font-size: 16px;
+    padding: 9px;
+    text-decoration: none;
+    line-height: 1;
+    cursor: pointer;
+    transition: all .2s ease;
+    display: inline-block;
+    letter-spacing: 1px;
+
+    &:hover {
+        background-color: $color-white;
+        color: $color-black;
+        border-color: $color-black;
+        transform: skewX(-6deg);
+    }
+
+    &[disabled] {
+        background-color: rgba($color-black, .3);
+        user-select: none;
+        pointer-events: none;
+    }
+}
+
+.form-row:not(.place-order) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: $gutter * 3;
+
+    &:nth-child(odd) {
+        transform: skewX(-2deg);
+    }
+
+    &:nth-child(even) {
+        transform: skewX(2deg);
+    }
+
+    .required {
+        text-decoration: none;
+        color: $color-pink;
+    }
+    
+    label {
+        text-align: center;
+    }
+
+    .woocommerce-input-wrapper {
+        &,
+        & > * {
+            width: 80vw;
+            box-sizing: border-box;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-medium + 1) {
+        flex-direction: row;
+
+        label {
+            width: 30%;
+            text-align: right;
+            margin-right: $gutter;
+        }
+
+        .woocommerce-input-wrapper {
+            &,
+            & > * {
+                width: 50vw;
+                max-width: 500px;
+            }
+        }
+    }
+}

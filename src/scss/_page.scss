@@ -1,0 +1,10 @@
+.page {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+@import 'page-header';
+@import 'page-content';
+@import 'page-footer';

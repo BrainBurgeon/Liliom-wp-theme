@@ -40,6 +40,14 @@ class Liliom extends Timber\Site {
         // add_action('woocommerce_after_main_content', array( $this, 'my_theme_wrapper_end' ), 10);
 
         add_filter( 'woocommerce_output_related_products_args', array( $this, 'output_related_products_args' ), 9999 );
+
+        remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+        add_action( 'woocommerce_shop_loop_item_title', array( $this, 'shop_loop_item_title' ) );
+
+        add_filter( 'woocommerce_cart_item_name', array( $this, 'cart_item_name' ), 10, 3 );
+
+        remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+        add_action( 'woocommerce_single_product_summary', array( $this, 'single_title' ), 5 );
     }
 
     // public function my_theme_wrapper_start() {
@@ -86,6 +94,39 @@ class Liliom extends Timber\Site {
         $args['posts_per_page'] = 3;
         $args['columns'] = 3;
         return $args;
+    }
+
+    public function shop_loop_item_title() {
+        $title = $this->processTitle( get_the_title() );
+        echo '<h3 class="brand-name">' . $title['brand_name'] . '</h3><h2 class="product-name">' . $title['product_name'] . '</h2>' . '<span class="product-info">' . $title['info'] . '</span>';
+    }
+
+    public function cart_item_name( $title, $item, $key ) {
+        $name = $this->processTitle( $title );
+        return '<div class="the-product"><div class="the-product-name">' .  $name['product_name'] . '</div><div class="the-brand-name">' . strip_tags($name['brand_name']) . '</div><div class="the-info">' . $name['info'] . '</div></div>';
+    }
+
+    public function single_title() {
+        $title = $this->processTitle( get_the_title() );
+        echo '<h1 class="product-name">' . $title['product_name'] . '</h1><div class="brand-name">' . $title['brand_name'] . '</div>';
+    }
+
+    private function processTitle( $title ) {
+        $processed = array(
+            'brand_name' => '',
+            'product_name' => $title,
+            'info' => ''
+        );
+
+        preg_match( '/(.*)\: (.*) \((.*)\)/', $title, $output_array );
+
+        if ( !empty( $output_array ) ) {
+            $processed['brand_name'] = $output_array[1];
+            $processed['product_name'] = $output_array[2];
+            $processed['info'] = $output_array[3];
+        }
+        
+        return $processed;
     }
 }
 

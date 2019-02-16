@@ -5,29 +5,35 @@
 	</head>
 {% endblock %}
 
-    <body class="{{ body_class }}">
-        <nav class="main-menu">
-            <ul>
-            {% for item in menu.items %}
-                <li>
-                    <a href="{{ item.link }}">{{ item.title }}</a>
-                </li>
-            {% endfor %}
-            </ul>
+    <body class="page{% if function('is_checkout') %} is-checkout{% endif %}">
+        <div class="page-header">
+            <a class="logo" href="{{ site.home }}">
+                Li<span class="nose">L</span>iOMOK
+            </a>
+            <div class="header-content">
+                {{ function('get_search_form') }}
+                <nav class="main-menu">
+                    <ul>
+                    {% for item in menu.items %}
+                        <li>
+                            <a href="{{ item.link }}">{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
 
-            {{ function('get_search_form') }}
-        </nav>
-
-        <main>
+        <div class="page-content">
         {% block content %}
             Content is coming... soon :)
         {% endblock %}
-        </main>
+        </div>
 
         {% block footer %}
-        <footer>
+        <div class="page-footer">
             {% include 'footer.twig' %}
-        </footer>
+        </div>
         {{ function('wp_footer') }}
         {% endblock %}
     </body>
