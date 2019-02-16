@@ -109,12 +109,18 @@
                 content: '';
                 position: absolute;
                 display: block;
-                width: 0.1%;
                 height: 100%;
                 background-color: rgba($color-pink, .2);
                 transform: skewX(-10deg) rotate(-3deg);
                 transform-origin: left bottom;
                 transition: width .2s ease;
+
+                /*
+                 *  If an element goes from _completely_ hidden to visible on hover on iOS,
+                 *  a click will only trigger the hover change.
+                 *  This trick prevents the need of dobule clicking on a link on iOS.
+                 */ 
+                width: 0.1%;
             }
         }
 
