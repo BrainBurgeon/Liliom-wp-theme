@@ -73,3 +73,18 @@
         margin-top: $gutter * 5;
     }
 }
+
+.wc_payment_methods {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.wc_payment_method {
+    flex: 1;
+    padding: $gutter * 2;
+
+    .payment_box {
+        font-size: .9rem;
+    }
+}
