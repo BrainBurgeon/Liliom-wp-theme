@@ -5,7 +5,7 @@
 {% else %}
 <div class="awaiting-payment">
     <h1>{{ __('Awaiting payment', 'liliom') }}</h1>
-    <h2 class="total">{{ order_data.total }} {{ order_data.currency }}</h2>
+    <div class="total">{{ order_data.total }} {{ order_data.currency }}</div>
 
     <div class="fusionpay alipay">
         <p class="payment">

@@ -6,4 +6,24 @@
     .payment-caption {
         display: block;
     }
+
+    .total {
+        display: inline-block;
+        position: relative;
+        font-family: $font-family-heading;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        color: $color-pink;
+
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 110%;
+            height: 110%;
+            background-color: rgba($color-pink, .2);
+            transform: skewX(-10deg) rotate(-3deg) translate(-5%, -2.5%);
+            transform-origin: left center;
+        }
+    }
 }
