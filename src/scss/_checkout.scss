@@ -18,10 +18,6 @@
         }
     }
 
-    .page-content {
-        margin-bottom: 100px;
-    }
-
     .page-footer {
         pointer-events: none;
         background: none;
@@ -60,7 +56,7 @@
     }
 
     .place-order {
-        margin: $gutter * 3 0;
+        margin: $gutter * 6 0;
         text-align: center;
 
         .woocommerce-terms-and-conditions-wrapper {
@@ -82,22 +78,29 @@
 .wc_payment_methods {
     list-style: none;
     padding: 0;
-    display: flex;
-
-    @media screen and (max-width: $breakpoint-medium) {
-        flex-direction: column;
-    }
 }
 
 .wc_payment_method {
-    flex: 1;
-    padding: $gutter * 2;
-
-    @media screen and (max-width: $breakpoint-medium) {
-        padding: $gutter;
+    .input-radio {
+        vertical-align: middle;
     }
-
+    
     .payment_box {
         font-size: .9rem;
+        margin-left: $gutter * 2;
+    }
+}
+
+.wc-payment-form {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    .wc-stripe-elements-field {
+        @extend .input-text;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
