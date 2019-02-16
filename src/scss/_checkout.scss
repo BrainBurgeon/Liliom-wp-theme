@@ -78,11 +78,19 @@
     list-style: none;
     padding: 0;
     display: flex;
+
+    @media screen and (max-width: $breakpoint-medium) {
+        flex-direction: column;
+    }
 }
 
 .wc_payment_method {
     flex: 1;
     padding: $gutter * 2;
+
+    @media screen and (max-width: $breakpoint-medium) {
+        padding: $gutter;
+    }
 
     .payment_box {
         font-size: .9rem;
