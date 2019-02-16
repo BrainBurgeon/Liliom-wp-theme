@@ -41,7 +41,10 @@
     transition: all .2s ease;
     display: inline-block;
     letter-spacing: 1px;
+    
+    // https://www.daretothink.co.uk/stop-ios-styling-your-input-fields-and-buttons/
     -webkit-appearance: none;
+    border-radius: 0;
 
     &:hover {
         background-color: $color-white;
