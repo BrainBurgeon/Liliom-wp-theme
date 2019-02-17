@@ -3,12 +3,18 @@ $main-content-width: 980px;
 $breakpoint-medium: 812px;
 $breakpoint-small: 576px;
 
+$muted-value: .7;
+$muted-well-value: .2;
+$muted-very-well-value: .08;
+
 $color-white: #fefcf8;
-$color-white-muted: rgba($color-white, .6);
+$color-white-muted: rgba($color-white, $muted-value);
 $color-black: #2f2f2f;
-$color-black-muted: rgba($color-black, .6);
+$color-black-muted: rgba($color-black, $muted-value);
+$color-black-muted-well: rgba($color-black, $muted-well-value);
+$color-black-muted-very-well: rgba($color-black, $muted-very-well-value);
 $color-pink: #fd5f81;
-$color-pink-muted-well: rgba($color-pink, .2);
+$color-pink-muted-well: rgba($color-pink, $muted-well-value);
 $color-gold: #fbf0a2;
 $color-blue: #0261f1;
 

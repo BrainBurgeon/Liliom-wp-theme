@@ -25,6 +25,7 @@
             background-color: $color-white-muted;
             z-index: -1;
             transform: skew(-2deg, -1deg) translate(-15px, 10px);
+            box-shadow: 7px 7px 0px $color-black-muted-very-well;
         }
 
         .amount {
@@ -70,11 +71,7 @@
         .product_meta {
             font-size: .8rem;
             margin: $gutter 0;
-            
-            &,
-            a {
-                color: $color-black-muted;
-            }
+            opacity: $muted-value;
     
             & > span {
                 display: block;
