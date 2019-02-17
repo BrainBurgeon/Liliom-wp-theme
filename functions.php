@@ -9,7 +9,7 @@ class Liliom extends Timber\Site {
     private $domain = 'liliom';
     private $translations = array( 'CN' => 'zh_CN' );
     private $taxonomy_brand_name = 'product_brand';
-    private $taxonomy_brand_slug = 'brand';
+    private $taxonomy_brand_slug = 'brands';
     private $taxonomy_term_id_cache = array();
 
     public function __construct() {
@@ -171,7 +171,7 @@ class Liliom extends Timber\Site {
         $title = $this->process_title( get_the_title() );
         $brand = $title['brand_name'];
         if ( !empty( $title['brand_name'] ) ) {
-            $taxonomy_url = get_home_url( null, 'brand/' . sanitize_title( $title['brand_name'] ) . '/' );
+            $taxonomy_url = get_home_url( null, $this->taxonomy_brand_slug . '/' . sanitize_title( $title['brand_name'] ) . '/' );
             $brand = '<a href="' . $taxonomy_url . '">' . $title['brand_name'] . '</a>';
         }
         echo '<h1 class="product-name">' . $title['product_name'] . '</h1><div class="brand-name">' . $brand . '</div>';
