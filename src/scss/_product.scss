@@ -22,7 +22,7 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background-color: $color-white-muted;
+            background-color: $color-white;
             z-index: -1;
             transform: skew(-2deg, -1deg) translate(-15px, 10px);
             box-shadow: 7px 7px 0px $color-black-muted-very-well;
@@ -75,6 +75,20 @@
     
             & > span {
                 display: block;
+            }
+        }
+
+        @media screen and (max-width: $breakpoint-small) {
+            &:before {
+                transform: skew(-2deg, -1deg) translate(-8px, 10px);
+            }
+
+            .price {
+                text-align: center;
+            }
+
+            .qty {
+                width: 60px;
             }
         }
     }
