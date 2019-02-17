@@ -121,6 +121,7 @@
         }
 
         #s {
+            will-change: width;
             margin: 0 $gutter;
             width: 130px;
             min-width: 130px;
