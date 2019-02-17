@@ -20,7 +20,7 @@ class Liliom extends Timber\Site {
         add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
         add_action( 'widgets_init', array( $this, 'widget_awareness' ) );
         add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-        add_filter( 'pre_get_posts', array( $this, 'search_filter' ) );
+        add_action( 'pre_get_posts', array( $this, 'search_filter' ) );
 
         ### WooCommerce
         add_filter( 'woocommerce_enqueue_styles', '__return_false' );
