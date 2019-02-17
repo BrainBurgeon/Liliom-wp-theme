@@ -1,7 +1,6 @@
 // !important is used heavily here to overwrite select2 styles
 .input-text,
-.select2-selection,
-#s {
+.select2-selection {
     border: 3px solid $color-black !important;
     border-radius: 0 !important;
     height: auto !important;

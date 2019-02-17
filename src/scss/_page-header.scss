@@ -114,13 +114,13 @@
             filter: grayscale(0);
         }
 
-        & > div {
+        .row {
             display: flex;
             align-items: center;
             justify-content: flex-end;
         }
 
-        #s {
+        .input-text {
             will-change: width;
             margin: 0 $gutter;
             width: 130px;
@@ -145,7 +145,7 @@
             }
 
             &,
-            #s {
+            .input-text {
                 flex-grow: 1;
             }
         }
@@ -159,7 +159,7 @@
         .searchform {
             width: 100%;
 
-            & > div {
+            .row {
                 justify-content: center;
             }
         }
