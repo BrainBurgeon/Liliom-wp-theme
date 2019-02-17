@@ -1,5 +1,9 @@
 {% extends 'base.twig' %}
 
 {% block content %}
+    {% if function('is_page') %}
+    <h1 class="page-title">{{ function('single_post_title') }}</h1>
+    {% endif %}
+    
     {{ function('woocommerce_content') }}
 {% endblock %}

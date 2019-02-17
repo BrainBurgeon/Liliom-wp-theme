@@ -51,6 +51,8 @@ class Liliom extends Timber\Site {
         add_filter( 'woocommerce_product_importer_parsed_data', array( $this, 'product_importer_parsed_data' ), 10, 2 );
         add_filter( 'woocommerce_product_import_inserted_product_object', array( $this, 'product_import_inserted_product_object' ), 10, 2 );
         add_filter( 'woocommerce_csv_product_import_mapping_default_columns', array( $this, 'csv_product_import_mapping_default_columns' ) );
+
+        add_filter( 'woocommerce_show_page_title', '__return_false' );
     }
 
     public function register_taxonomy_brand() {

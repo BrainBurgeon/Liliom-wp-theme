@@ -45,7 +45,17 @@ h1,
 h2,
 h3 {
     font-family: $font-family-heading;
+}
+
+h1 {
     font-size: 1.8rem;
+    transform: rotate(-3deg) translateX(-$gutter / 2);
+    transform-origin: left bottom;
+}
+
+h2,
+h3 {
+    font-size: 1.4rem;
 }
 
 a {
