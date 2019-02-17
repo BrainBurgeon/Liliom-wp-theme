@@ -21,14 +21,6 @@
         display: flex;
         flex-direction: column;
 
-        &:hover {
-            .price {
-                &:before {
-                    width: 100%;
-                }
-            }
-        }
-
         @media screen and (max-width: $breakpoint-medium) {
             width: 45%;
         }
@@ -37,13 +29,25 @@
             width: 85%;
         }
 
+        a {
+            text-decoration: none;
+        }
+
         .woocommerce-loop-product__link {
             display: flex;
             flex-direction: column;
-        }
 
-        a {
-            text-decoration: none;
+            &:hover {
+                .product-name {
+                    color: $color-pink;
+                }
+
+                .price {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
         }
 
         .brand-name {
@@ -69,6 +73,7 @@
             transform: rotate(-2deg) translate(-24px, -26px);
             transform-origin: left bottom;
             text-transform: uppercase;
+            transition: color .2s ease;
         }
 
         &:nth-child(2n) {
