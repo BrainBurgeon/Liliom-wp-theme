@@ -19,7 +19,7 @@
         font-family: $font-family-heading;
         border: 5px solid $color-black;
         color: $color-black;
-        background-color: $color-white;
+        background-color: #fefcf8;
         padding: 11px 6px 11px 9px;
         font-weight: bold;
         text-decoration: none;
@@ -75,11 +75,12 @@
         }
 
         @media screen and (max-width: $breakpoint-small) {
-            margin-top: $gutter * 2;
+            margin-top: $gutter;
         }
     }
 
     .main-menu {
+        order: -1;
         flex-grow: 1;
         
         ul {
@@ -87,15 +88,11 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
         }
 
         li {
             margin: 0 $gutter;
-        }
-
-        @media screen and (min-width: $breakpoint-medium + 1) {
-            order: -1;
         }
 
         @media screen and (max-width: $breakpoint-medium) {
@@ -110,9 +107,9 @@
         opacity: .5;
         filter: grayscale(1);
         transition: all .2s ease;
+        transform: scale(.9);
 
         @media screen and (min-width: $breakpoint-medium + 1) {
-            transform: scale(.9);
             transform-origin: right;
         }
 
@@ -127,6 +124,7 @@
         }
 
         #s {
+            will-change: transform;
             margin: 0 $gutter;
             width: 160px;
             min-width: 160px;
