@@ -60,8 +60,9 @@ h3 {
 
 a {
     color: $color-blue;
+    text-decoration: none;
 
     &:hover {
-        text-decoration: none;
+        text-decoration: underline;
     }
 }

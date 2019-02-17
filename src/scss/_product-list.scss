@@ -128,15 +128,13 @@
         .added_to_cart {
             background-color: transparent;
             align-self: baseline;
-            color: rgba($color-blue, .8);
-            transition: all .2s ease-out;
             margin-top: -$product-gutter;
             padding: $product-gutter;
             transform: translate(-$product-gutter, $product-gutter);
+            font-size: .8rem;
 
             &:hover {
                 text-decoration: underline;
-                color: $color-blue;
             }
         }
 
