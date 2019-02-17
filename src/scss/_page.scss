@@ -5,6 +5,7 @@
     flex-direction: column;
 
     .page-title {
+        margin-top: $gutter * 3;
         margin-bottom: $gutter * 3;
     }
 }
