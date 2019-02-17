@@ -1,5 +1,7 @@
 <?php
 
+// This file is loaded by javascript.
+
 $response = array( 'success' => true );
 
 try {

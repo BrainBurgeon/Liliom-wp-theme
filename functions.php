@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) or exit;
+
 // Timber is a must-use plugin, no need to check its existence
 
 Timber::$dirname = array( 'templates' );

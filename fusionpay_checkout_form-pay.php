@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) or exit;
+
 $context = Timber::get_context();
 $context['order_id'] = $order->id;
 $context['order_data'] = $order->data;
