@@ -18,21 +18,6 @@
         }
     }
 
-    .page-footer {
-        pointer-events: none;
-        background: none;
-        box-shadow: none;
-        line-height: normal;
-        padding: 3px;
-        opacity: .8;
-        
-        dt {
-            font-family: $font-family-body;
-            letter-spacing: normal;
-            font-weight: normal;
-        }
-    }
-
     td {
         &.product-name {
             display: flex;

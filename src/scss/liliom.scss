@@ -5,9 +5,10 @@ $breakpoint-small: 576px;
 
 $color-white: #fefcf8;
 $color-white-muted: rgba($color-white, .6);
-$color-black: #1d1d1d;
+$color-black: #2f2f2f;
 $color-black-muted: rgba($color-black, .6);
 $color-pink: #fd5f81;
+$color-pink-muted-well: rgba($color-pink, .2);
 $color-gold: #fbf0a2;
 $color-blue: #0261f1;
 
@@ -36,7 +37,7 @@ html {
 }
 
 body {
-    background-color: $color-gold;
+    background-color: $color-pink-muted-well;
     min-height: 100%;
 }
 

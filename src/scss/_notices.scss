@@ -12,4 +12,9 @@
     a {
         color: $color-gold;
     }
+
+    .button {
+        padding: $gutter / 2;
+        font-size: inherit;
+    }
 }
