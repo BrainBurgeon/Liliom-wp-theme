@@ -7,7 +7,7 @@
     }
 
     .summary {
-        margin-bottom: $gutter * 6;
+        margin-bottom: $gutter * 7;
 
         &,
         & > * {
@@ -90,6 +90,12 @@
             .qty {
                 width: 60px;
             }
+        }
+    }
+
+    .related {
+        .products {
+            margin-top: $gutter * 2;
         }
     }
 }
