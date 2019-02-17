@@ -3,6 +3,8 @@
 {% block content %}
     {% if function('is_page') %}
     <h1 class="page-title">{{ function('single_post_title') }}</h1>
+    {% elseif function('is_archive') %}
+    <h1 class="page-title">{{ function('get_the_archive_title') }}</h1>
     {% endif %}
     
     {{ function('woocommerce_content') }}
