@@ -2,4 +2,5 @@
 
 defined( 'ABSPATH' ) or exit;
 
-Timber::render( 'searchform.twig' );
+$context = Timber::get_context();
+Timber::render( 'searchform.twig', $context );
