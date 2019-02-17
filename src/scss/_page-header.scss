@@ -82,10 +82,11 @@
     .main-menu {
         order: -1;
         flex-grow: 1;
+        transition: all .2s ease;
         
         ul {
             list-style: none;
-            margin: 0;
+            margin: 0 $gutter;
             padding: 0;
             display: flex;
             justify-content: space-evenly;
@@ -107,11 +108,6 @@
         opacity: .5;
         filter: grayscale(1);
         transition: all .2s ease;
-        transform: scale(.9);
-
-        @media screen and (min-width: $breakpoint-medium + 1) {
-            transform-origin: right;
-        }
 
         &:hover {
             opacity: 1;
@@ -121,13 +117,13 @@
         & > div {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
         }
 
         #s {
-            will-change: transform;
             margin: 0 $gutter;
-            width: 160px;
-            min-width: 160px;
+            width: 130px;
+            min-width: 130px;
             transform: skewX(2deg);
         }
 
@@ -135,7 +131,7 @@
          *  So this is a little complex...
          *  In the header we have [.searchform] [.main-menu] in that order
          *  With CSS we change the order to [.main-menu] [.searchform]
-         *  This way we can reach the [.main-menu] from within [.searchform] to "hide" it, using the sibling selector (+)
+         *  This way we can reach the [.main-menu] from within [.searchform]
          */
         &:focus-within {
             opacity: 1;
@@ -144,13 +140,26 @@
             @media screen and (min-width: $breakpoint-medium + 1) {
                 + .main-menu {
                     flex-grow: 0;
-                    width: 0;
-                    overflow: hidden;
                 }
             }
 
+            &,
             #s {
-                width: 33vw;
+                flex-grow: 1;
+            }
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-medium) {
+        .main-menu {
+            width: 100%;
+        }
+
+        .searchform {
+            width: 100%;
+
+            & > div {
+                justify-content: center;
             }
         }
     }
