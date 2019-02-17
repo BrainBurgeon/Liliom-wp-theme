@@ -3,6 +3,10 @@
     padding: 0;
     display: flex;
     flex-direction: column;
+
+    .page-title {
+        margin-bottom: $gutter * 3;
+    }
 }
 
 @import 'page-header';

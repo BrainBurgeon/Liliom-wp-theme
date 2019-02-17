@@ -1,0 +1,10 @@
+.brand-list {
+    dt {
+        text-transform: uppercase;
+        font-family: $font-family-heading;
+        font-size: 1.4em;
+        font-weight: bold;
+        text-align: center;
+        margin-top: $gutter * 6;
+    }
+}

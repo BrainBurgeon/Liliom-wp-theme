@@ -1,0 +1,20 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+
+    {{ post.content }}
+
+    <dl class="brand-list">
+    {% for char, brand_abc in product_brand_terms_abc %}
+        <dt>{{ char }}</dt>
+        <dd>
+            <ul class="brand-list">
+            {% for brand in brand_abc %}
+                <li class="brand"><a href="{{ brand.url }}" target="_blank">{{ brand.name }}</a></li>
+            {% endfor %}
+            </ul>
+        </dd>
+    {% endfor %}
+    </dl>
+{% endblock %}
