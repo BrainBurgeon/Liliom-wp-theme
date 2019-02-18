@@ -165,6 +165,7 @@ class Liliom extends Timber\Site {
         }
 	    $context['menu'] = new Timber\Menu( 'Main Menu' );
 	    $context['site'] = new TimberSite();
+	    $context['available_payment_gateways'] = WC()->payment_gateways->get_available_payment_gateways();
 	    return $context;
     }
 
