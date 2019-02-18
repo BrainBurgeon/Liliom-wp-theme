@@ -14,6 +14,12 @@
         }
     }
 
+    .page-footer {
+        .available-payment-gateways {
+            display: none;
+        }
+    }
+
     td {
         &.product-name {
             display: flex;
