@@ -57,6 +57,8 @@ class Liliom extends Timber\Site {
         add_filter( 'woocommerce_show_page_title', '__return_false' );
 
         add_filter( 'woocommerce_pagination_args', array( $this, 'pagination_args' ), 10, 1 );
+
+        remove_action( 'woocommerce_no_products_found', 'wc_no_products_found' );
     }
 
     public function pagination_args( $args ) {
