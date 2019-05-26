@@ -197,7 +197,7 @@ class Liliom extends Timber\Site {
             'info' => ''
         );
 
-        preg_match( '/(.*)\: ([a-zA-Z0-9 ]+)\ ?(\(.*\))?/', $title, $output_array );
+        preg_match( '/(.*)\: ([^(]+)\ ?(\(.*\))?/', $title, $output_array );
 
         if ( !empty( $output_array ) ) {
             if ( isset( $output_array[1] ) ) {
