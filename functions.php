@@ -207,7 +207,7 @@ class Liliom extends Timber\Site {
                 $processed['product_name'] = $output_array[2];
             }
             if ( isset( $output_array[3] ) ) {
-                $processed['info'] = $output_array[3];
+                $processed['info'] = trim($output_array[3], '()');
             }
         }
         
