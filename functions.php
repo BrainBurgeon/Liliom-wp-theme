@@ -197,12 +197,18 @@ class Liliom extends Timber\Site {
             'info' => ''
         );
 
-        preg_match( '/(.*)\: (.*) \((.*)\)/', $title, $output_array );
+        preg_match( '/(.*)\: ([a-zA-Z0-9 ]+)\ ?(\(.*\))?/', $title, $output_array );
 
         if ( !empty( $output_array ) ) {
-            $processed['brand_name'] = $output_array[1];
-            $processed['product_name'] = $output_array[2];
-            $processed['info'] = $output_array[3];
+            if ( isset( $output_array[1] ) ) {
+                $processed['brand_name'] = $output_array[1];
+            }
+            if ( isset( $output_array[2] ) ) {
+                $processed['product_name'] = $output_array[2];
+            }
+            if ( isset( $output_array[3] ) ) {
+                $processed['info'] = $output_array[3];
+            }
         }
         
         return $processed;
