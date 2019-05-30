@@ -77,6 +77,10 @@
             margin: 0 $gutter;
             transform: skewY(1deg);
         }
+
+        #colour {
+            margin-left: $gutter;
+        }
     
         .product_meta {
             font-size: .8rem;
