@@ -20,6 +20,7 @@
         box-shadow: 7px 7px 0px $color-black-muted-very-well;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
 
         @media screen and (max-width: $breakpoint-medium) {
             width: 45%;
