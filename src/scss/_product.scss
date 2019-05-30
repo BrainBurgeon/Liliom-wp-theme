@@ -4,6 +4,16 @@
         display: flex;
         justify-content: center;
         margin: $gutter * 3 0;
+
+        &.variations_form {
+            .woocommerce-variation-add-to-cart {
+                display: flex;
+            }
+
+            @media screen and (max-width: $breakpoint-small) {
+                flex-flow: column;
+            }
+        }
     }
 
     .summary {
