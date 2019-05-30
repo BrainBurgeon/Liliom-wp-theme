@@ -6,12 +6,11 @@
         margin: $gutter * 3 0;
 
         &.variations_form {
+            flex-flow: column;
+            align-items: center;
+
             .woocommerce-variation-add-to-cart {
                 display: flex;
-            }
-
-            @media screen and (max-width: $breakpoint-small) {
-                flex-flow: column;
             }
         }
     }
@@ -78,8 +77,13 @@
             transform: skewY(1deg);
         }
 
+        .variations {
+            display: flex;
+            margin: $gutter;
+        }
+
         #colour {
-            margin-left: $gutter;
+            margin: 0 $gutter;
         }
     
         .product_meta {
