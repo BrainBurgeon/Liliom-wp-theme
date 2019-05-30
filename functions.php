@@ -20,7 +20,6 @@ class Liliom extends Timber\Site {
         add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
         add_action( 'widgets_init', array( $this, 'widget_awareness' ) );
         add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-        add_filter( 'woocommerce_quantity_input_args', array( $this, 'quantity_input_args' ), 10, 2 );
 
         ### WooCommerce
         add_filter( 'woocommerce_enqueue_styles', '__return_false' );
@@ -41,6 +40,8 @@ class Liliom extends Timber\Site {
         remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_catalog_ordering', 30 );
         // Remove tabs from product detail page
         remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+        // Remove SKU from product page
+        add_filter( 'wc_product_sku_enabled', '__return_false' );
 
         add_filter( 'woocommerce_output_related_products_args', array( $this, 'output_related_products_args' ), 9999 );
         remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
@@ -48,6 +49,7 @@ class Liliom extends Timber\Site {
         add_filter( 'woocommerce_cart_item_name', array( $this, 'cart_item_name' ), 10, 3 );
         remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
         add_action( 'woocommerce_single_product_summary', array( $this, 'single_title' ), 5 );
+        add_filter( 'woocommerce_quantity_input_args', array( $this, 'quantity_input_args' ), 10, 2 );
 
         // Extend WC Import with Brand
         add_filter( 'woocommerce_csv_product_import_mapping_options', array( $this, 'csv_product_import_mapping_options' ) );
