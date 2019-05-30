@@ -20,6 +20,7 @@ class Liliom extends Timber\Site {
         add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
         add_action( 'widgets_init', array( $this, 'widget_awareness' ) );
         add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+        add_filter( 'woocommerce_quantity_input_args', array( $this, 'quantity_input_args' ), 10, 2 );
 
         ### WooCommerce
         add_filter( 'woocommerce_enqueue_styles', '__return_false' );
@@ -59,6 +60,11 @@ class Liliom extends Timber\Site {
         add_filter( 'woocommerce_pagination_args', array( $this, 'pagination_args' ), 10, 1 );
 
         remove_action( 'woocommerce_no_products_found', 'wc_no_products_found' );
+    }
+
+    public function quantity_input_args( $args, $product ) {
+        $args['product_name'] = '';
+        return $args;
     }
 
     public function pagination_args( $args ) {
