@@ -26,7 +26,7 @@ select {
     }
 }
 
-.button:not(.add_to_cart_button):not(.wc-forward),
+.button:not(.add_to_cart_button),
 #searchsubmit {
     will-change: transform;
     border: none;
