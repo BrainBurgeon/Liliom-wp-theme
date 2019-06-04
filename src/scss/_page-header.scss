@@ -96,12 +96,6 @@
             margin: 0 $gutter;
         }
 
-        a {
-            &:hover {
-                transition: all .3s ease;
-            }
-        }
-
         @media screen and (max-width: $breakpoint-medium) {
             a {
                 display: inline-block;
