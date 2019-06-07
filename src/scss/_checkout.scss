@@ -54,24 +54,6 @@
     #place_order {
         margin-top: $gutter * 5;
     }
-
-    .payment_box {
-        position: relative;
-        
-        &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: $color-white;
-            z-index: -1;
-            transform: skew(-2deg, -1deg) translate(-15px, 10px);
-            box-shadow: 7px 7px 0px $color-black-muted-very-well;
-        }
-    }
 }
 
 #ship-to-different-address {
