@@ -27,6 +27,10 @@ select {
     }
 }
 
+#stripe-card-element {
+    margin: 0;
+}
+
 .button:not(.add_to_cart_button),
 #searchsubmit {
     will-change: transform;
