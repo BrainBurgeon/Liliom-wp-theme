@@ -4,6 +4,7 @@
 {% if function('is_page') %}
     {% set title = function('single_post_title') %}
     {% set title_split = title|split(': ') %}
+    [{{title_split|length}}]
     {% if title_split|length > 1 %}
         <h1 class="page-title">{{ title_split[1] }}</h1>
     {% else %}
