@@ -3,6 +3,7 @@
 {% set title_split = post.title|split(': ') %}
 
 {% block content %}
+[{{title_split|length}}]
 {% if title_split|length > 1 %}
     <h1 class="page-title">{{ title_split.0 }}</h1>
 {% else %}
