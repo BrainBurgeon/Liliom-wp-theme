@@ -8,7 +8,7 @@
     {% set title_split = title|split(': ') %}
     {% if title_split|length > 1 %}
         <h1 class="page-title">{{ title_split[1] }}</h1>
-    {% elseif %}
+    {% else %}
         <h1 class="page-title">{{ title }}</h1>
     {% endif %}
 {% endif %}
