@@ -61,6 +61,11 @@
     font-size: 1.2rem;
 }
 
+.shipping_address {
+    // Fix collapsing margin-top
+    overflow: auto;
+}
+
 .wc_payment_methods {
     list-style: none;
     padding: 0;
