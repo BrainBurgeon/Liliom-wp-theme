@@ -37,6 +37,10 @@
             box-shadow: 7px 7px 0px $color-black-muted-very-well;
         }
 
+        .woocommerce-product-details__short-description {
+            width: calc(100% - #{$gutter * 2});
+        }
+
         .amount {
             display: inline-block;
             position: relative;
