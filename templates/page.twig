@@ -1,6 +1,12 @@
 {% extends 'base.twig' %}
 
+{% set title_split = post.title|split(': ') %}
+
 {% block content %}
+{% if title_split|length > 1 %}
+    <h1 class="page-title">{{ title_split[1] }}</h1>
+{% else %}
     <h1 class="page-title">{{ post.title }}</h1>
+{% endif %}
     {{ post.content }}
 {% endblock %}
