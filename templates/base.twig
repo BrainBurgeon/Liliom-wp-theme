@@ -5,7 +5,7 @@
 	</head>
 {% endblock %}
 
-    <body class="page{% if function('is_checkout') %} is-checkout{% endif %}">
+    <body class="preload page{% if function('is_checkout') %} is-checkout{% endif %}">
         <div class="page-header">
             <a class="logo" href="{{ site.home }}">
                 Li<span class="nose">L</span>iOMOK
@@ -37,4 +37,10 @@
         {{ function('wp_footer') }}
         {% endblock %}
     </body>
+
+    <script>
+    window.onload = function () {
+        document.querySelector('body').classList.remove('preload');
+    };
+    </script>
 </html>

@@ -46,6 +46,12 @@ body {
     background-color: rgba(244, 191, 228, 0.6);
     background-color: rgba(114, 137, 218, 0.2);
     min-height: 100%;
+
+    // Do not have transitions while page is loading
+    // .preload is removed with Javascript 
+    &.preload * {
+        transition: none !important;
+    }
 }
 
 h1,
