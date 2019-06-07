@@ -1,6 +1,6 @@
 {% extends 'base.twig' %}
 
-{% set title_split = post.title|split(': ') %}
+{% set title_split = post.title|split(':') %}
 
 {% block content %}
 {% if title_split|length > 1 %}
