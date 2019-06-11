@@ -33,7 +33,7 @@
             left: 0;
             background-color: $color-white;
             z-index: -1;
-            transform: skew(-2deg, -1deg) translate(-15px, 10px);
+            transform: skew(-2deg, -1deg) translate(-15px, 5px);
             box-shadow: 7px 7px 0px $color-black-muted-very-well;
         }
 
@@ -97,6 +97,25 @@
     
             & > span {
                 display: block;
+            }
+        }
+
+        .single_variation_wrap {
+            .woocommerce-variation {
+                text-align: center;
+                padding: $gutter;
+            }
+
+            .woocommerce-variation-availability {
+                .stock {
+                    margin: 0;
+
+                    &.out-of-stock {
+                        &:after {
+                            content: ' :(';
+                        }
+                    }
+                }
             }
         }
 

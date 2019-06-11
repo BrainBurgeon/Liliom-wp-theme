@@ -2,7 +2,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const incstr = require('incstr');
-const nextId = incstr.idGenerator({alphabet:'abcefghijklmnopqrstuvwxyz0123456789', prefix:'l', suffix:''});
+// const nextId = incstr.idGenerator({alphabet:'abcefghijklmnopqrstuvwxyz0123456789', prefix:'l', suffix:''});
 
 var config = {
     mode: 'production',
