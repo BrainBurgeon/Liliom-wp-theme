@@ -13,8 +13,8 @@
 
     & > .product {
         background-color: $color-white;
-        width: 30%;
-        margin: $product-gutter 0;
+        width: 29%;
+        margin: $gutter * 2.5 0;
         padding: $product-gutter;
         box-sizing: border-box;
         box-shadow: 7px 7px 0px $color-black-muted-very-well;
